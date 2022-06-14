@@ -1,6 +1,6 @@
 ---
 title: "Análisis estadístico utilizando R"
-subtitle: "Agosto 2021"
+subtitle: "Julio/Agosto 2022"
 author: "Spiousas - Etchemendy"
 date: "`r Sys.Date()`"
 output: 
