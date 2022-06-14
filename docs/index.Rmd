@@ -4,10 +4,10 @@ subtitle: "Julio/Agosto 2022"
 author: "Spiousas - Etchemendy"
 date: "`r Sys.Date()`"
 output: 
-  rmdformats::robobook:
+  rmdformats::downcute:
     html_document:
       includes:
-      in_header: header.html
+        in_header: "favicon.html" 
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
