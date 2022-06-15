@@ -6,15 +6,14 @@
 ### Docentes 💻
 
 -   Pablo Etchemendy (UNTreF/Conicet) [<img
-    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//RtmpvZWZo6/file2c0916a84fa8.png"
-    style="height:0.7em" />](https://github.com/https://github.com/petcheme)
-    [<img
-    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//RtmpvZWZo6/file2c09405aa37.png"
+    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//Rtmp5HGDpu/file2db67a73f8f3.png"
+    style="height:0.7em" />](https://github.com/petcheme) [<img
+    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//Rtmp5HGDpu/file2db653dd5853.png"
     style="height:0.7em" />](https://twitter.com/petcheme)
 -   Ignacio Spiousas (UNQ/Conicet) [<img
-    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//RtmpvZWZo6/file2c09fea02f1.png"
+    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//Rtmp5HGDpu/file2db668d1dc28.png"
     style="height:0.7em" />](https://github.com/spiousas) [<img
-    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//RtmpvZWZo6/file2c094c672460.png"
+    src="/var/folders/4l/b6543l4s3vj9n9s3jcs2vq_w0000gn/T//Rtmp5HGDpu/file2db629ccfbdb.png"
     style="height:0.7em" />](https://twitter.com/Spiousas)
 
 ### Fechas 📆
@@ -25,7 +24,7 @@ distancia asincrónicas y un clases prácticas y de consulta presenciales
 en el [campus de la UNQ](https://goo.gl/maps/AWHxftehkFWHwWHCA) a
 distancia sincrónicas.
 
-### Inscripción 📁
+### Inscripción 🗃
 
 Si sos estudiante de doctorado de la UNQ te podés anotar a través del
 campus en la semana del 17 al 21 de junio.
@@ -123,14 +122,14 @@ Los temas que vamos a tratar en el curso son:
 
 ### Unidad 4
 
--   **Clase 8: Ciencia Abierta: Por qué y para qué 😦** <br /> La
+-   **Clase 8: Ciencia Abierta: Por qué y para qué 📂** <br /> La
     Ciencia Abierta es un movimiento que tiene como objetivo hacer la
     investigación científica y su divulgación accesible en todo nivel.
     Se trata de un esfuerzo por construir una ciencia transparente y
     accesible en base a trabajos colaborativos y herramientas para
     compartir.
 
--   **Clase 9: Ciencia Abierta: Cómo 🔓** <br /> En esta clase
+-   **Clase 9: Ciencia Abierta: Cómo 😅** <br /> En esta clase
     exploraremos las opciones para la publicación eficiente y
     transparente tanto de nuestros datos como de nuestros códigos de
     análisis (por ejemplo, OSF, Github, etc.). También, como una
