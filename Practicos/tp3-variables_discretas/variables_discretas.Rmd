@@ -3,7 +3,9 @@ title: "TP3 - Variables discretas"
 author: "Spiousas - Etchemendy"
 date: "`r Sys.Date()`"
 output: 
-  rmdformats::robobook
+  rmdformats::robobook:
+    includes:
+      in_header: "../favicon.html" 
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
