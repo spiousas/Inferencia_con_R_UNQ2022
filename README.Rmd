@@ -19,8 +19,18 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Docentes `r ji("computer")`
 
-* Pablo Etchemendy (UNTreF/Conicet) [`r icons::icon_style(icons::fontawesome("github"), fill = "black")`](https://github.com/petcheme) [`r icons::icon_style(icons::fontawesome("twitter"), fill = "#black")`](https://twitter.com/petcheme)
-* Ignacio Spiousas (UNQ/Conicet) [`r icons::icon_style(icons::fontawesome("github"), fill = "#A42339")`](https://github.com/spiousas) [`r icons::icon_style(icons::fontawesome("twitter"), fill = "#A42339")`](https://twitter.com/Spiousas)
+Pablo Etchemendy (UNTreF/Conicet) <a target="_blank" href="https://twitter.com/petcheme">
+  <img align="left" alt="Twitter" width="18px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />
+</a> <a target="_blank" href="https://github.com/petcheme">
+  <img align="left" alt="GitHub" width="18px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+</a>
+
+Ignacio Spiousas (UNQ/Conicet) <a target="_blank" href="https://twitter.com/spiousas">
+  <img align="left" alt="Twitter" width="18px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />
+</a> <a target="_blank" href="https://github.com/spiousas">
+  <img align="left" alt="GitHub" width="18px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" />
+</a>
+
 
 ### Fechas `r ji("calendar")`
 
