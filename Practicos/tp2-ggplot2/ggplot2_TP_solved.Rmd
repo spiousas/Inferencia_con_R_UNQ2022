@@ -44,16 +44,16 @@ Vamos a leer los datos:
 
 ```{r load, echo = TRUE, eval = TRUE}
 library(tidyverse)
-setwd("~/Dropbox/Estadistica/Inferencia_con_R_UNQ2021/Practicos/ggplot2/")
+library(here)
 
-dictionary_tbl <- read_csv("../tidyverse/data/dictionary.csv")
-summer_tbl <- read_csv("../tidyverse/data/summer.csv")
+dictionary_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/dictionary.csv"))
+summer_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/summer.csv"))
 
 summer_por_disciplina_tbl <- summer_tbl %>% 
     group_by(Year, City, Sport, Country, Discipline, Event, Gender, Medal) %>%
     summarise() # No hace ninguna operación
 
-winter_tbl <- read_csv("../tidyverse/data/winter.csv")
+winter_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/winter.csv"))
 
 winter_por_disciplina_tbl <- winter_tbl %>% 
     group_by(Year, City, Sport, Country, Discipline, Event, Gender, Medal) %>%

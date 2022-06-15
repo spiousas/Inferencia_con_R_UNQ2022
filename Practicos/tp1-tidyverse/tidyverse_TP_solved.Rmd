@@ -5,6 +5,8 @@ date: "`r Sys.Date()`"
 output: 
   rmdformats::robobook:
     code_folding: show
+    includes:
+      in_header: "../favicon.html" 
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
@@ -60,7 +62,7 @@ library(RCurl)
 Luego, podemos asignar una `url` de la que descargar nuestro archivos `.csv`. EN nuestro caso el código sería como a continuación:
 
 ```{r}
-url <- "https://raw.githubusercontent.com/spiousas/Inferencia_con_R_UNQ2021/main/Practicos/tidyverse/data/dictionary.csv"
+url <- "https://raw.githubusercontent.com/spiousas/Inferencia_con_R_UNQ2022/main/Practicos/tp1-tidyverse/data/dictionary.csv"
 x <- getURL(url)
 dictionary_tbl <- as_tibble(read.csv(text = x))
 
