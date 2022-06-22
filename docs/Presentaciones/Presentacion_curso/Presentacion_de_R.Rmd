@@ -116,7 +116,7 @@ a.k.a los *prácticos*
 ]
 
 .pull-right[
-Serán encuentros vía Zoom los lunes y jueves de 14 a 17 hs.
+Serán encuentros presenciales y virtuales los martes de 10 a 13 hs.
 
 Vamos a resolver los prácticos (ejercicios) entre todxs y vamos a aprovechar para que puedan despejar todas sus dudas (también pueden usar **Slack**).
 ]
@@ -178,21 +178,7 @@ class: left, top, highlight-last-item
 
 - Para el viernes **27 de agosto** tienen que enviarnos el Rmarkdown que vamos a corregir en los siguientes 15 días.
 
----
-class: left, top, highlight-last-item
-# Y los oyentes
 
-Una de las ideas del curso es que **nadie que quisiera cursar se quedara afuera** peeeero, tiene limitaciones.
-
-Somos sólo dos docentes y muchos estudiantes así a los oyentes les proponemos dos cosas:
-
-- No presentar el trabajo, esto es obvio, no?
-
-- Presentar el trabajo sólo en **Rmarkdown**
-
-- Organizar, entre los oyentes que quieran presentar, una juntada la semana siguiente a que finalice el curso y hacer las presentaciones
-
----
 class: center, middle, inverse
 
 .big[
