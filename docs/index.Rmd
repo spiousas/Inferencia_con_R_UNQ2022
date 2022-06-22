@@ -67,8 +67,8 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | 3      | CA-23  | Modelos lineales 3 - Regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-3/linear_models_3.html) | [YouTube](https://www.youtube.com/watch?v=ipO3seGtsvw&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=30) |
 | 3      | CA-24  | Modelos lineales 4 - Inferencia en regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html) | [YouTube](https://www.youtube.com/watch?v=aHh4AufEd10&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=31) |
 | 4      | TP-6  | Modelos lineales | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html)| [YouTube](https://www.youtube.com/watch?v=Vd7l3btHBYU&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=32) |
-| 4      | CA-25  | Modelos lineales de efectos mixtos 1 - Datos jerárquicos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/Modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=juYglyzFCVA&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=33) |
-| 4      | CA-26  | Modelos lineales de efectos mixtos 2 - Efectos mixtos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/Modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=QGVwlNiU9Po&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=34)
+| 4      | CA-25  | Modelos lineales de efectos mixtos 1 - Datos jerárquicos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=juYglyzFCVA&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=33) |
+| 4      | CA-26  | Modelos lineales de efectos mixtos 2 - Efectos mixtos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=QGVwlNiU9Po&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=34)
 | 4      | TP-7  | Modelos lineales de efecto mixtos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html)| [YouTube](https://www.youtube.com/watch?v=8k93z5u31bQ&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=36) |
 
 (**CS**) Clase Sincrónica 
@@ -88,8 +88,8 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
 
 **Antes de empezar**
 
-Si ya estás inscripto en el curso te invitamos a que completes esta [breve encuesta](https://forms.gle/kbDur1KXid17TsYZ7) que nos va a ayudar a conocer a la "audiencia" para que el curso salga lo mejor posible.
-También los invitamos a unirse al [espacio de trabajo del curso en Slack](https://join.slack.com/t/inferencia-r-unq/shared_invite/zt-v9xfhrar-Q~2imrDug8jGqo1AAi6oZg). Es muy importante que si vas a hacer el curso estés en el grupo de Slack ya que es el medio que vamos a utilizar para comunicarnos. 
+Si ya estás inscripto en el curso te invitamos a que completes esta [breve encuesta](https://forms.gle/vzNMMw74FXTWercY9) que nos va a ayudar a conocer a la "audiencia" para que el curso salga lo mejor posible.
+También los invitamos a unirse al [espacio de trabajo del curso en Slack](https://join.slack.com/t/inferencia-r-unq/shared_invite/zt-1bb0trtsz-HuNlhg94C~UHe_cK9YR00g). Es muy importante que si vas a hacer el curso estés en el grupo de Slack ya que es el medio que vamos a utilizar para comunicarnos. 
 
 </div>
 <br>
