@@ -35,13 +35,13 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Unidad 1
 
-* **Semana 0: Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`**
+* **Semana 0 (Antes del 27/6):** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Introducción a R y Rstudio    | No hay                             | [YouTube](https://www.youtube.com/watch?v=NOwcUHaqlyI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=1) |
+| Clase                 | Vídeo                 |
+| --------------------- | --------------------- |
+| Introducción a R y Rstudio    | [YouTube](https://www.youtube.com/watch?v=NOwcUHaqlyI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=1) |
 
-* **Semana 1: Visualización de datos con R `r ji("painter")`** 
+* **Semana 1 (27/6 al 1/7):** Visualización de datos con R `r ji("painter")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -57,7 +57,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Unidad 2
 
-* **Semana 2: Revisando conceptos de probabilidad y estadística: Aleatoriedad y otros temas aleatorios `r ji("dice")`**
+* **Semana 2 (4/7 al 8/7):** Revisando conceptos de probabilidad y estadística: Aleatoriedad y otros temas aleatorios `r ji("dice")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -69,7 +69,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Variables Aleatorias 4-3: La distribución Gaussiana (o normal)              | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/4/4-Distribuciones_estadisticas.pdf) | [YouTube](https://www.youtube.com/watch?v=UdunP_Epfec&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=16) |
 | Variables discretas y continuas | [Discretas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_discretas.html) [Continuas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_continuas.html) | [YouTube](https://www.youtube.com/watch?v=CFOAxG78H3A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=17) |
 
-* **Semana 3: Revisando conceptos de probabilidad y estadística: Distribuciones estadísticas `r ji("stats")`**
+* **Semana 3 (11/7 al 15/7):** Revisando conceptos de probabilidad y estadística: Distribuciones estadísticas `r ji("stats")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -77,9 +77,16 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Cómo detectar outliers y qué hacer con ellos              | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-2/EDA_2.html) | [YouTube](https://www.youtube.com/watch?v=gwMIpYw_J5A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=19) |
 | Análisis exploratorio de datos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html) | [YouTube](https://www.youtube.com/watch?v=w-9xmWBb_R4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=24) |
 
+<style>
+div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
+</style>
+<div class = "blue", style="text-align:center">
+<b>Receso invernal del 15 al 29 de julio</b>
+</div>
+
 ### Unidad 3
 
-* **Semana 4: Análisis exploratorio de datos `r ji("thinking")`**
+* **Semana 4 (1/8 al 5/8):** Análisis exploratorio de datos `r ji("thinking")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -91,7 +98,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Prueba de hipótesis 6 - Tamaño del efecto | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=EfL0o20VA-w&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=26) |
 | Prueba de hipótesis | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html)  | [YouTube](https://www.youtube.com/watch?v=bGkpOmXoOto&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=27) |
 
-* **Semana 5: Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`** 
+* **Semana 5 (8/8 al 12/8):** Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -101,7 +108,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Modelos lineales 4 - Inferencia en regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html) | [YouTube](https://www.youtube.com/watch?v=aHh4AufEd10&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=31) |
 | Modelos lineales | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html)| [YouTube](https://www.youtube.com/watch?v=Vd7l3btHBYU&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=32) |
 
-* **Semana 6: Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`**
+* **Semana 6 (15/8 al 19/8):** Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -112,29 +119,29 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Unidad 4
 
-* **Semana 8: Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`**
+* **Semana 7 (22/8 al 26/8):** Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
 
-(**CA**) Clase Asincrónica
+### Unidad 5
 
-(**TP**) Trabajo Práctico
+* **Semana 8 (29/8 al 2/9)** Presentación del trabajo final `r ji("folded")`.
+
+</style>
+<div class = "blue", style="text-align:center">
+Durante esta semana vamos a acomodar las consultas y las presentaciones.
+</div>
 
 ## Bienvenidxs
 
 Bienvenidxs a la página web del curso de posgrado **Análisis estadístico utilizando R** de la Unversidad Nacional de Quilmes. Acá vas a encontrar las presentaciones, tutoriales, ejemplos y ejercicios del curso.
 
-<style>
-div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 20px;}
-</style>
 <div class = "blue">
-
 **Antes de empezar**
 
 Si ya estás inscripto en el curso te invitamos a que completes esta [breve encuesta](https://forms.gle/vzNMMw74FXTWercY9) que nos va a ayudar a conocer a la "audiencia" para que el curso salga lo mejor posible.
 También los invitamos a unirse al [espacio de trabajo del curso en Slack](https://join.slack.com/t/inferencia-r-unq/shared_invite/zt-1bb0trtsz-HuNlhg94C~UHe_cK9YR00g). Es muy importante que si vas a hacer el curso estés en el grupo de Slack ya que es el medio que vamos a utilizar para comunicarnos. 
-
 </div>
 <br>
 En este curso vamos a aprender a organizar, visualizar y modelar tus datos utilizando **R** para que puedas generar *pipelines* de análisis elegantes, seguros y reproducibles.
@@ -168,15 +175,15 @@ Nociones básicas sobre el funcionamiento de ggplot2 (otra librería del Tidyver
 
 * **Semana 5: Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`** <br /> Una de las prácticas estadísticas más extendidas son las pruebas de hipótesis (aún cuando no corresponden). En esta clase vamos a diseccionar su anatomía y explorar sus componentes básicos, como los tipos de errores, la potencia estadística, el p-value y los effect size. Intentaremos resumir las discusiones actuales alrededor del tan amado y, a la vez, odiado p-value.
 
-* **Semana 6 y 7: Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`** <br /> Un p<0.05 en una prueba de hipótesis parece ser el santo grial científico al que todos queremos llegar, pero no siempre se trata de una metodología correcta y puede llevar a grandes errores de interpretación. En esta clase vamos a introducir a los alumnos en una de las técnicas de modelado (una muy popular) para tratar con análisis exploratorios.
+* **Semana 6: Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`** <br /> Un p<0.05 en una prueba de hipótesis parece ser el santo grial científico al que todos queremos llegar, pero no siempre se trata de una metodología correcta y puede llevar a grandes errores de interpretación. En esta clase vamos a introducir a los alumnos en una de las técnicas de modelado (una muy popular) para tratar con análisis exploratorios.
 
 ### Unidad 4
 
-* **Semana 8: Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`** <br /> La Ciencia Abierta es un movimiento que tiene como objetivo hacer la investigación científica y su divulgación accesible en todo nivel. Se trata de un esfuerzo por construir una ciencia transparente y accesible en base a trabajos colaborativos y herramientas para compartir. También exploraremos las opciones para la publicación eficiente y transparente tanto de nuestros datos como de nuestros códigos de análisis (por ejemplo, OSF, Github, etc.). También, como una consecuencia de la ciencia abierta vamos a hacer una mención a los pre-registros y por qué son importantes, cuándo son factibles y cómo llevarlos adelante.
+* **Semana 7: Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`** <br /> La Ciencia Abierta es un movimiento que tiene como objetivo hacer la investigación científica y su divulgación accesible en todo nivel. Se trata de un esfuerzo por construir una ciencia transparente y accesible en base a trabajos colaborativos y herramientas para compartir. También exploraremos las opciones para la publicación eficiente y transparente tanto de nuestros datos como de nuestros códigos de análisis (por ejemplo, OSF, Github, etc.). También, como una consecuencia de la ciencia abierta vamos a hacer una mención a los pre-registros y por qué son importantes, cuándo son factibles y cómo llevarlos adelante.
 
 ### Unidad 5
 
-* **Clase 10: Presentación del trabajo final `r ji("folded")`** <br /> Lxs alumnxs presentarán, para los docentes y el resto de sus compañerxs, los análisis que realizaron a modo de trabajo final. La idea es que puedan compartir una experiencia de aplicación honesta, con las complicaciones propias de la inferencia estadística en el mundo real.
+* **Semana 8: Presentación del trabajo final `r ji("folded")`** <br /> Lxs alumnxs presentarán, para los docentes y el resto de sus compañerxs, los análisis que realizaron a modo de trabajo final. La idea es que puedan compartir una experiencia de aplicación honesta, con las complicaciones propias de la inferencia estadística en el mundo real.
 
 ## Qué hacer antes de la primera clase
 
