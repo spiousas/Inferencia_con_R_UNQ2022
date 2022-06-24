@@ -35,24 +35,34 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Unidad 1
 
-* **Semana 0 (Antes del 27/6):** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`
+* **Semana 0 (Antes del 27/6):** Para ver si nunca tuviste contacto con **R** ni **RStudio**
 
 | Clase                 | Vídeo                 |
 | --------------------- | --------------------- |
 | Introducción a R y Rstudio    | [YouTube](https://www.youtube.com/watch?v=NOwcUHaqlyI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=1) |
 
-* **Semana 1 (27/6 al 1/7):** Visualización de datos con R `r ji("painter")`.
+* **Semana 1 (27/6 al 1/7):** Presentación del curso `r ji("baby")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
 | Presentación del curso | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2) |
-| ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=SfQ9JF72GvI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=3) |
+| ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) |
+
+* **También en la semana 1:** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`.
+
+| Clase                 | Documento             | Vídeo                 |
+| --------------------- | --------------------- | --------------------- |
 | Bienvenidos al Tidyverse                        | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-2/Tidyverse_1.html) | [YouTube](https://www.youtube.com/watch?v=l1ow5g2aUhs&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=4) |
 | El Tidyverse en acción                          | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-3/Tidyverse_2.html) | [YouTube](https://www.youtube.com/watch?v=MpypVMxu3V8&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=5) |
+| *tidyverse*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html) | [CS-2 Parte 1](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) |
+
+* **También en la intensa semana 1:** Visualización de datos con R `r ji("painter")`.
+
+| Clase                 | Documento             | Vídeo                 |
+| --------------------- | --------------------- | --------------------- |
 | Visualización de datos: *A New Hope*            | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-1/ggplot_1.html) | [YouTube](https://www.youtube.com/watch?v=LE2QVqLcvE0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=6) |
 | Visualización de datos: *Ggplot2 Strikes Back*  | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-2/ggplot_2.html) | [YouTube](https://www.youtube.com/watch?v=TMhZML7JqsM&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=7) |
 | Visualización de datos: *Return of the Ggplot2* | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-3/ggplot_3.html) | [YouTube](https://www.youtube.com/watch?v=j0vwd7w_Kok&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=8) |
-| *tidyverse*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html) | [CS-2 Parte 1](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) |
 | *ggplot2*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP_solved.html) | [CS-2 Parte 2](https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10) |
 
 ### Unidad 2
