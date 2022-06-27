@@ -147,14 +147,14 @@ class: left, top, highlight-last-item
 Existen grupos con actividades increíbles y una infinidad de actividades y recursos (por ejemplo, en **YouTube**)
 
 - **RenBaires** https://renbaires.github.io/
-![:scale 10%](https://renbaires.github.io/assets/icons/icon.png)
+![:scale 5%](https://renbaires.github.io/assets/icons/icon.png)
 
 - Hay muchos grupos de **RLadies** increíbles!
   - **RLadies Buenos Aires** https://twitter.com/rladiesba
   - **RLadies Oslo** https://twitter.com/rladiesoslo
   - **RLadies Seattle** https://rladiesseattle.org/
   
-También es una buena idea seguir los hashtags **#rtats** y **#tidytuesday** en Twitter 
+También es una buena idea seguir los hashtags **#rstats** y **#tidytuesday** en Twitter 
 
 ---
 class: left, top, highlight-last-item
@@ -299,7 +299,17 @@ class: left, top, highlight-last-item
 Aunque no lo crean, estas infografías están hechas 100% utilizando **R**
 
 .center.mid[
-![:scale 80%](./figs/InfoBBC.png)
+![:scale 60%](./figs/map.png)
+]
+
+---
+class: left, top, highlight-last-item
+# Cómo olvidar gráficas tan lindas `r emo::ji("fuji")`
+
+Aunque no lo crean, estas infografías están hechas 100% utilizando **R**
+
+.center.mid[
+![:scale 80%](./figs/table.png)
 ]
 ---
 class: left, top, highlight-last-item
