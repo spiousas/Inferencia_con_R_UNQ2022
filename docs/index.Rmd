@@ -45,7 +45,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
-| Presentación del curso | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2) |
+| Presentación del curso | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html) | [(CS-2021)](https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2) |
 | ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=SfQ9JF72GvI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=3)
 
 * **También en la semana 1:** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`.
@@ -54,7 +54,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | --------------------- | --------------------- | --------------------- |
 | Bienvenidos al Tidyverse                        | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-2/Tidyverse_1.html) | [YouTube](https://www.youtube.com/watch?v=l1ow5g2aUhs&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=4) |
 | El Tidyverse en acción                          | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-3/Tidyverse_2.html) | [YouTube](https://www.youtube.com/watch?v=MpypVMxu3V8&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=5) |
-| *tidyverse*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html) | [CS-2 Parte 1](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) |
+| *tidyverse*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html) | [(CS-2021)](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) [(CS-2022)](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) |
 
 * **También en la intensa semana 1:** Visualización de datos con R `r ji("painter")`.
 
@@ -63,7 +63,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Visualización de datos: *A New Hope*            | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-1/ggplot_1.html) | [YouTube](https://www.youtube.com/watch?v=LE2QVqLcvE0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=6) |
 | Visualización de datos: *Ggplot2 Strikes Back*  | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-2/ggplot_2.html) | [YouTube](https://www.youtube.com/watch?v=TMhZML7JqsM&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=7) |
 | Visualización de datos: *Return of the Ggplot2* | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-3/ggplot_3.html) | [YouTube](https://www.youtube.com/watch?v=j0vwd7w_Kok&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=8) |
-| *ggplot2*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP_solved.html) | [CS-2 Parte 2](https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10) |
+| *ggplot2*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP_solved.html) | [(CS-2021)](https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10) [(CS-2022)](https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10) |
 
 ### Unidad 2
 
@@ -77,7 +77,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Variables Aleatorias 4-1: Distribución binomial     | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/4/4-Distribuciones_estadisticas.pdf) | [YouTube](https://www.youtube.com/watch?v=ec-HextxRJ8&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=14) |
 | Variables Aleatorias 4-2: Distribución uniforme                            | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/4/4-Distribuciones_estadisticas.pdf) | [YouTube](https://www.youtube.com/watch?v=7dfvFh-Gdaw&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=15) |
 | Variables Aleatorias 4-3: La distribución Gaussiana (o normal)              | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/4/4-Distribuciones_estadisticas.pdf) | [YouTube](https://www.youtube.com/watch?v=UdunP_Epfec&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=16) |
-| Variables discretas y continuas | [Discretas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_discretas.html) [Continuas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_continuas.html) | [YouTube](https://www.youtube.com/watch?v=CFOAxG78H3A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=17) |
+| Variables discretas y continuas | [Discretas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_discretas.html) [Continuas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_continuas.html) | [(CS-2021)](https://www.youtube.com/watch?v=CFOAxG78H3A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=17) |
 
 * **Semana 3 (11/7 al 15/7):** Análisis exploratorio de datos `r ji("thinking")`.
 
@@ -85,7 +85,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | --------------------- | --------------------- | --------------------- |
 | Exploración de datos                           | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-1/EDA_1.html) | [YouTube](https://www.youtube.com/watch?v=oPfr0X0qGG4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=18) |
 | Cómo detectar outliers y qué hacer con ellos              | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-2/EDA_2.html) | [YouTube](https://www.youtube.com/watch?v=gwMIpYw_J5A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=19) |
-| Análisis exploratorio de datos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html) | [YouTube](https://www.youtube.com/watch?v=w-9xmWBb_R4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=24) |
+| Análisis exploratorio de datos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html) | [(CS-2021)](https://www.youtube.com/watch?v=w-9xmWBb_R4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=24) |
 
 <style>
 div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
@@ -106,7 +106,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 | Prueba de hipótesis 4 - P-values | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=o4M96nLVn0A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=23) |
 | Prueba de hipótesis 5 - Potencia estadística | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=fpO0B7ZlHSE&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=25) |
 | Prueba de hipótesis 6 - Tamaño del efecto | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=EfL0o20VA-w&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=26) |
-| Prueba de hipótesis | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html)  | [YouTube](https://www.youtube.com/watch?v=bGkpOmXoOto&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=27) |
+| Prueba de hipótesis | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html)  | [(CS-2021)](https://www.youtube.com/watch?v=bGkpOmXoOto&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=27) |
 
 * **Semana 5 (8/8 al 12/8):** Modelos lineales: Regresión lineal y regresión múltiple `r ji("arrow")`.
 
@@ -116,7 +116,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 | Modelos lineales 2 - Inferencia en regresión lineal | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-2/linear_models_2.html) | [YouTube](https://www.youtube.com/watch?v=_Khk5-_v5u0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=29) |
 | Modelos lineales 3 - Regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-3/linear_models_3.html) | [YouTube](https://www.youtube.com/watch?v=ipO3seGtsvw&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=30) |
 | Modelos lineales 4 - Inferencia en regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html) | [YouTube](https://www.youtube.com/watch?v=aHh4AufEd10&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=31) |
-| Modelos lineales | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html)| [YouTube](https://www.youtube.com/watch?v=Vd7l3btHBYU&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=32) |
+| Modelos lineales | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html)| [(CS-2021)](https://www.youtube.com/watch?v=Vd7l3btHBYU&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=32) |
 
 * **Semana 6 (15/8 al 19/8):** Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`.
 
@@ -124,7 +124,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 | --------------------- | --------------------- | --------------------- |
 | Modelos lineales de efectos mixtos 1 - Datos jerárquicos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=juYglyzFCVA&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=33) |
 | Modelos lineales de efectos mixtos 2 - Efectos mixtos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=QGVwlNiU9Po&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=34)
-| Modelos lineales de efecto mixtos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html)| [YouTube](https://www.youtube.com/watch?v=8k93z5u31bQ&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=36) |
+| Modelos lineales de efecto mixtos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html)| [(CS-2021)](https://www.youtube.com/watch?v=8k93z5u31bQ&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=36) |
 
 
 ### Unidad 4
@@ -219,9 +219,9 @@ Git y los repositorios online (como GitHub o GitLab) son una herramienta poderos
 
 Antes de comenzar con el desarrollo del trabajo final lxs alumnxs deberán completar un examen escrito en el que se evaluarán los contenidos básicos del curso. El formato del mismo será una mezcla de multiple-choice y casos de estudio (por ejemplo, encontrar el error en la interpretación de un análisis estadístico).
 
-El trabajo final consistirá en aplicar los contenidos de la materia al análisis de datos propios o de alguna base de datos abiertos de un tema relacionado con la disciplina en la que se desarrolla el/la alumnx. De esta forma pretendemos cerrar la brecha entre los desarrollos teóricos y las aplicaciones prácticas de los contenidos, con todas las limitaciones que esto pudiera presentar. El mismo consistirá de una presentación escrita (en formato **Rmd**) y una presentación oral en la que deberán estar TODXS lxs miembros del grupo de trabajo. Asímismo, todos los grupos deberán estar presentes en las dos clases de consulta previas a la entrega.
+El trabajo final consistirá en aplicar los contenidos de la materia al análisis de datos propios o de alguna base de datos abiertos de un tema relacionado con la disciplina en la que se desarrolla el/la alumnx. De esta forma pretendemos cerrar la brecha entre los desarrollos teóricos y las aplicaciones prácticas de los contenidos, con todas las limitaciones que esto pudiera presentar. El mismo consistirá de una presentación escrita (en formato **Rmd**) y una presentación oral en la que deberán estar (**TODXS** lxs miembros del grupo de trabajo. Asímismo, todos los grupos deberán estar presentes en las dos clases de consulta previas a la entrega.
 
-El trabajo final debe contener un análisis exploratorio de los datos, limpieza y detección de outliers, una visualización utilizando *{ggplot2}*`r ji("package")`, y un modelo lineal (normal o de efectos mixtos) que puede ser utilizado tanto en el contexto de un análisis exploratorio como (preferentemente) en un testeo de hipótesis. En ambos casos los resultados del modelado deben ser interpretados tanto estadísticamente como en el contexto de la pregunta y el tema de investigación a desarrollar.
+El trabajo final debe contener un análisis exploratorio de los datos, limpieza y detección de outliers, una visualización utilizando *{ggplot2}*`r ji("package")`, y un modelo lineal (normal o de efectos mixtos) que puede ser utilizado tanto en el contexto de un análisis exploratorio como en un testeo de hipótesis. En ambos casos los resultados del modelado deben ser interpretados tanto estadísticamente como en el contexto de la pregunta y el tema de investigación a desarrollar.
 
 ## Donde ver las clases
 

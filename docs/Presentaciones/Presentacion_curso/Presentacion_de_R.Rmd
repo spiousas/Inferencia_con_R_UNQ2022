@@ -101,7 +101,7 @@ a.k.a las *teóricas*
 ]
 
 .pull-right[
-Como el amor clasificado que buscaba![:scale 25%](https://fotos.perfil.com/2020/05/22/trim/950/534/rodrigo-bueno-el-potro-961082.jpg?webp), no tienen día ni horario.
+Como el amor clasificado que buscaba![:scale 10%](https://fotos.perfil.com/2020/05/22/trim/950/534/rodrigo-bueno-el-potro-961082.jpg?webp), no tienen día ni horario.
 
 Vamos a ver los temas del curso en pequeños vídeos de no más de 30 minutos subidos a **YouTube**.
 ]
@@ -115,9 +115,9 @@ a.k.a los *prácticos*
 ]
 
 .pull-right[
-Serán encuentros presenciales y virtuales los martes de 10 a 13 hs.
+Serán encuentros virtuales los martes de 10 a 13 hs.
 
-Vamos a resolver los prácticos (ejercicios) entre todxs y vamos a aprovechar para que puedan despejar todas sus dudas (también pueden usar **Slack**).
+Vamos a resolver los prácticos entre todxs y vamos a aprovechar para que puedan despejar todas sus dudas (también pueden usar **Slack**).
 ]
 
 --
@@ -131,11 +131,11 @@ a.k.a lo que hay que hacer para aprobar el curso
 .pull-right[
 El objetivo del curso es que hagan un análisis estadístico utilizando **R**.
 
-La idea es que generen un notebook de RMarkdown (ya van a ver qué es) que simule el documento que adjuntarían a un paper para que se puedan replicar todos los análisis y figuras del mismo.
+La idea es que generen un notebook de RMarkdown (ya van a ver qué es).
 
 Debe contener **Análisis previo y pre-procesado**, **visualización de datos** y **modelado o testeo de hipótesis** de algún tipo.
 
-En caso de que no cuenten con datos propios lxs podemos ayudar a encontrar algún dataset abierto online para que trabajen.
+Lxs podemos ayudar a encontrar algún dataset abierto online para que trabajen.
 ]
 
 ---
@@ -173,7 +173,6 @@ class: left, top, highlight-last-item
 
 - Se va a tratar de un examen sencillo con preguntas multiple choice con la idea de cumplir la función de "prueba de lectura".
 
-
 ---
 class: left, top, highlight-last-item
 # ¿Cómo se aprueba?
@@ -184,7 +183,7 @@ class: left, top, highlight-last-item
 
 - La idea es que generen un notebook de **Rmarkdown** (ya van a ver qué es) que simule el documento que adjuntarían a un paper para que se puedan replicar todos los análisis y figuras del mismo.
 
-- Debe contener **Análisis previo y pre-procesado**, **visualización de datos** y **modelado o testeo de hipótesis** de algún tipo.
+- Debe contener **Análisis previo y pre-procesado**, **visualización de datos** y **modelado o testeo de hipótesis** de algún tipo, utilizando las herramientas vistas en el curso.
 
 - En caso de que no cuenten con datos propios lxs podemos ayudar a encontrar algún dataset abierto online para que trabajen.
 
