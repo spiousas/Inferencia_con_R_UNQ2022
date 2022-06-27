@@ -46,7 +46,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
 | Presentación del curso | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2) |
-| ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) |
+| ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=SfQ9JF72GvI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=3)
 
 * **También en la semana 1:** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`.
 
@@ -67,7 +67,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 
 ### Unidad 2
 
-* **Semana 2 (4/7 al 8/7):** Revisando conceptos de probabilidad y estadística: Aleatoriedad y otros temas aleatorios `r ji("dice")`.
+* **Semana 2 (4/7 al 8/7):** Revisando conceptos de probabilidad y estadística: Aleatoriedad y Distribuciones estadísticas `r ji("dice")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -79,7 +79,7 @@ options(tibble.print_min = 5, tibble.print_max = 5)
 | Variables Aleatorias 4-3: La distribución Gaussiana (o normal)              | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/4/4-Distribuciones_estadisticas.pdf) | [YouTube](https://www.youtube.com/watch?v=UdunP_Epfec&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=16) |
 | Variables discretas y continuas | [Discretas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_discretas.html) [Continuas](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp3-variables_discretas/variables_continuas.html) | [YouTube](https://www.youtube.com/watch?v=CFOAxG78H3A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=17) |
 
-* **Semana 3 (11/7 al 15/7):** Revisando conceptos de probabilidad y estadística: Distribuciones estadísticas `r ji("stats")`.
+* **Semana 3 (11/7 al 15/7):** Análisis exploratorio de datos `r ji("thinking")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -96,7 +96,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 
 ### Unidad 3
 
-* **Semana 4 (1/8 al 5/8):** Análisis exploratorio de datos `r ji("thinking")`.
+* **Semana 4 (1/8 al 5/8):** Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
@@ -108,7 +108,7 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 | Prueba de hipótesis 6 - Tamaño del efecto | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=EfL0o20VA-w&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=26) |
 | Prueba de hipótesis | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html)  | [YouTube](https://www.youtube.com/watch?v=bGkpOmXoOto&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=27) |
 
-* **Semana 5 (8/8 al 12/8):** Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`.
+* **Semana 5 (8/8 al 12/8):** Modelos lineales: Regresión lineal y regresión múltiple `r ji("arrow")`.
 
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |

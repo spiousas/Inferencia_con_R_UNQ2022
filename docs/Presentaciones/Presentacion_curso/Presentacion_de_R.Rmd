@@ -6,6 +6,7 @@ institute: "UNQ UNTreF CONICET"
 date: "(updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
+    self_contained: true
     seal: false
     css: 
       - xaringan-themer.css
@@ -93,8 +94,6 @@ Pablo Etchemendy
 class: left, top, highlight-last-item
 # Cursada
 
-La cursada cuenta de tres partes
-
 .pull-left.right[
 ### Las clases asincrónicas
 
@@ -144,25 +143,42 @@ class: left, top, highlight-last-item
 # Cronograma 📆
 
 .small[
-| Semana | Fecha     | Unidad                                |
-| --- | --------- | ------------------------------------- | 
-| 0   | pre 1/8   | Introducción a R y Rstudio |
-| 1   | 2-5/8     | Bienvenidx al Tidyverse! |
-| 1   | 2-5/8     | Visualización de datos con R: Como hacer gráficos que sean la envidia de tus colegas. |
-| 1   | 5-9/8     | Revisando conceptos de probabilidad y estadística: Aleatoriedad y otros temas aleatorios. |
-| 1   | 5-9/8     | Revisando conceptos de probabilidad y estadística: Distribuciones estadísticas. |
-| 2   | 9-12/8    | Análisis exploratorio de datos. |
-| 2   | 9-12/8    | Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes. |
-| 2-3 | 12-19/8  | Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos. |
-| 3-4 | 12-19/8  | Ciencia Abierta: Por qué y para qué. |
-| 3-4 | 12-19/8  | Ciencia Abierta: Cómo. |
-| 4   | 26 y 31/8  | Presentación del trabajo final. |
+| Semana | Fecha   | Unidad                                |
+| - | ------------ | ------------------------------------- | 
+| 0 | pre 27/6     | Introducción a R y Rstudio |
+| 1 | 27/6 al 1/7  | Bienvenidx al Tidyverse! |
+| 1 | 27/6 al 1/7  | Visualización de datos con R: Como hacer gráficos que sean la envidia de tus colegas. |
+| 2 | 4/7 al 8/7   | Revisando conceptos de probabilidad y estadística: Aleatoriedad y otros temas aleatorios. |
+| 2 | 4/7 al 8/7   | Revisando conceptos de probabilidad y estadística: Distribuciones estadísticas. |
+| 3 | 11/7 al 15/7 | Análisis exploratorio de datos. |
+| X | 15/7 al 29/7 | **RECESO INVERNAL** |
+| 4 | 1/8 al 5/8   | Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes. |
+| 5 | 8/8 al 12/8  | Modelos lineales: Regresión simple y múltiple.
+| 6 | 15/8 al 19/8 | Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos. |
+| X | Por acá      | **EXAMEN** |
+| 7 | 22/8 al 26/8 | Ciencia Abierta: Por qué, para qué y cómo. |
+| 8 | 29/8 al 2/9  | Presentación del trabajo final. |
 ]
 
 
 ---
 class: left, top, highlight-last-item
-# El trabajo de cierre
+# ¿Cómo se aprueba?
+
+## El examen
+
+- Entre las semanas 6 y 7 de la cursada vamos a tomar un pequeño examen en el aula virtual.
+
+- Es un **requisito** para la aprobación del curso tener aprobado el examen.
+
+- Se va a tratar de un examen sencillo con preguntas multiple choice con la idea de cumplir la función de "prueba de lectura".
+
+
+---
+class: left, top, highlight-last-item
+# ¿Cómo se aprueba?
+
+## El Trabajo de cierre
 
 - El objetivo del curso es que hagan un análisis estadístico utilizando **R**.
 
@@ -174,13 +190,13 @@ class: left, top, highlight-last-item
 
 - Lo van a poder hacer individualmente o en grupos de **2**.
 
-- El último jueves y el sieguiente lunes robado (**26 y 31 de agosto**) van a tener que hacer una presentación de **15** minutos contando el trabajo.
+- En la semana del 29/8 al 2/9 van a tener que hacer una presentación de **15** minutos contando el trabajo.
 
-- Para el viernes **27 de agosto** tienen que enviarnos el Rmarkdown que vamos a corregir en los siguientes 15 días.
+- Para el viernes **9 de septiembre** tienen que enviarnos el Rmarkdown que vamos a corregir en los siguientes 15 días.
 
-
+---
 class: center, middle, inverse
 
-.big[
+.huge[
 **¡Suerte `r emo::ji("tada")`!**
 ]
