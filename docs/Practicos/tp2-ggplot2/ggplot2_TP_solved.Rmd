@@ -46,14 +46,15 @@ Vamos a leer los datos:
 library(tidyverse)
 library(here)
 
-dictionary_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/dictionary.csv"))
-summer_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/summer.csv"))
+dictionary_tbl <- read_csv(here("docs/Practicos/tp1-tidyverse/data/dictionary.csv"))
+
+summer_tbl <- read_csv(here("docs/Practicos/tp1-tidyverse/data/summer.csv"))
 
 summer_por_disciplina_tbl <- summer_tbl %>% 
     group_by(Year, City, Sport, Country, Discipline, Event, Gender, Medal) %>%
     summarise() # No hace ninguna operación
 
-winter_tbl <- read_csv(here("Practicos/tp1-tidyverse/data/winter.csv"))
+winter_tbl <- read_csv(here("docs/Practicos/tp1-tidyverse/data/winter.csv"))
 
 winter_por_disciplina_tbl <- winter_tbl %>% 
     group_by(Year, City, Sport, Country, Discipline, Event, Gender, Medal) %>%
@@ -184,8 +185,8 @@ summer_por_disciplina_tbl %>%
   rename("Code" = "Country") %>%
   left_join(dictionary_tbl) %>%
   drop_na() %>%
-  ggplot(aes(x = `GDP per Capita`,
-             y = Medallas)) +
+  ggplot(aes(x = log(`GDP per Capita`),
+             y = log(Medallas))) +
   labs(x = "PBI per cápita",
        y = "Medallas de oro acumuladas",
        title = "Medallas de oro acumuladas vs. PBI per cápita") +
@@ -208,8 +209,8 @@ summer_por_disciplina_tbl %>%
   left_join(dictionary_tbl) %>%
   drop_na() %>%
   #filter(Code != "USA") %>% Si queremos filtrar a USA que caga todo
-  ggplot(aes(x = `GDP per Capita`,
-             y = Medallas,
+  ggplot(aes(x = log(`GDP per Capita`),
+             y = log(Medallas),
              color = Season)) +
   labs(x = "PBI per cápita",
        y = "Medallas de oro acumuladas",
@@ -233,8 +234,8 @@ summer_por_disciplina_tbl %>%
   left_join(dictionary_tbl) %>%
   drop_na() %>%
   #filter(Code != "USA") %>% #Si queremos filtrar a USA que caga todo
-  ggplot(aes(x = `GDP per Capita`,
-             y = Medallas,
+  ggplot(aes(x = log(`GDP per Capita`),
+             y = log(Medallas),
              color = Medal)) +
   geom_point(size = 2,
              alpha = .7) +
