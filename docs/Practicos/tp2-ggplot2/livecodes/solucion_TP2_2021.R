@@ -2,6 +2,11 @@ library(tidyverse)
 library(magrittr)
 library(livecode)
 
+server <- livecode::serve_file(bitly = TRUE)
+# server$send_msg("Hello World!", type = "success")
+# server$send_msg("Oh no!\n\n Something bad has happened.", type = "error")
+# server$stop()
+
 # leer los datos
 setwd("~/Dropbox/Estadistica/Inferencia_con_R_UNQ2021/Practicos/ggplot2/")
 

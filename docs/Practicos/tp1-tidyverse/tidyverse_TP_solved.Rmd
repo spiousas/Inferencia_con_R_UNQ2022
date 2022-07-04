@@ -33,7 +33,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/rstudio/hex-stickers/
 knitr::include_graphics("https://www.seekpng.com/png/full/85-856819_olympic-rings-png-anillos-de-los-juegos-olimpicos.png")
 ```
 
-En este práctico vamos a usar los paquetes del *{tidyverse}* para explorar los datos históricos de los Juegos Olímpicos.
+En este práctico vamos a usar los paquetes del *{tidyverse}* para explorar los datos históricos de los Juegos Olímpicos desde Atenas 1896 a Rio 2016 (faltan Tokio 2020 y Pekín 2022).
 
 Antes de empezar les recordamos que tienen que instalar los paquetes del *{tidyverse}* y adjuntarlo a la sesión de **R** ejecutando las dos líneas a continuación (si ya instalaron los paquetes del *{tidyverse}* no hace falta que corran la primera línea):
 
@@ -44,34 +44,13 @@ library(tidyverse)
 
 ## Cómo cargar los datos
 
-Los datos históricos de los Juegos Olímpicos son un dataset de **Kaggle**. Para cargarlos a su sesión de R los pueden encontrar en el repositorio de la materia, en las carpetas `Practicos/tidyverse/data`, copiarlos en su carpeta de trabajo y leerlos utilizando la función `read_csv()` del paquete *{readr}*.
+Los datos históricos de los Juegos Olímpicos son un dataset de **Kaggle**. Para cargarlos a su sesión de R los pueden encontrar en el repositorio de la materia, en las carpetas `docs/Practicos/tidyverse/data`, copiarlos en su carpeta de trabajo y leerlos utilizando la función `read_csv()` del paquete *{readr}*.
 
 ```{r}
 dictionary_tbl <- read_csv("./data/dictionary.csv")
 summer_tbl <- read_csv("./data/summer.csv")
 winter_tbl <- read_csv("./data/winter.csv")
 ```
-
-Otra opción es leer directamente los datos del repositorio de **github** `r icons::icon_style(icons::fontawesome("github"), fill = "black")`. Para esto necesitamos instalar y adjuntar el paquete *{Rcurl}*.
-
-```{r, eval = FALSE}
-install.packages("RCurl")
-library(RCurl)
-```
-
-Luego, podemos asignar una `url` de la que descargar nuestro archivos `.csv`. EN nuestro caso el código sería como a continuación:
-
-```{r}
-url <- "https://raw.githubusercontent.com/spiousas/Inferencia_con_R_UNQ2022/main/Practicos/tp1-tidyverse/data/dictionary.csv"
-x <- getURL(url)
-dictionary_tbl <- as_tibble(read.csv(text = x))
-
-# ídem para: 
-#   summer_tbl: https://raw.githubusercontent.com/spiousas/Inferencia_con_R_UNQ2021/main/Practicos/tidyverse/data/summer.csv
-#   winter_tbl: https://raw.githubusercontent.com/spiousas/Inferencia_con_R_UNQ2021/main/Practicos/tidyverse/data/winter.csv
-```
-
-Las dos formas de leer los archivos pueden tener ligeras diferencias en los nombres de las variables.
 
 ## Los datos
 
