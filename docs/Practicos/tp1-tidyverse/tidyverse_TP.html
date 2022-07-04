@@ -1923,18 +1923,21 @@ para resolver las consignas, pero para todo lo que no está en las clases
 existe <a href="https://www.google.com/"><strong>google</strong></a>.</p>
 <p>Vamos a ver qué jugo🥤les podemos sacar a estos datos…</p>
 <ol style="list-style-type: decimal">
-<li><p>Empecemos con algo sencillo. Usemos <code>View()</code> para
-visualizar <code>summer_tbl</code>. En la columna <code>Athlete</code>
-¿Qué pasa en los deportes de equipo? ¿Esta bien si sumamos las medallas
-tal cual están en el <code>tibble</code>? ¿Cómo podemos hacer para
-solucionarlo?</p>
+<li><p>Empecemos con algo sencillo: ¿Qué simboliza cada fila del
+<code>tibble</code>? ¿Es una medalla por país o por atleta?.</p>
+<p><em>Pista</em>: usemos <code>View()</code> para visualizar
+<code>summer_tbl</code> antes de hacer ninguna operación. En la columna
+<code>Athlete</code> ¿Qué pasa en los deportes de equipo? Si de ahora en
+adelante vamos a estar interesados en las medallas por país ¿Esta bien
+calcular las medallas totales sumando las filas del <code>tibble</code>?
+¿Cómo podemos hacer para solucionarlo?.</p>
 <p>Acá una propuesta (hagan lo mismo para
 <code>winter_tbl</code>):</p></li>
 </ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acomodemos el tibble</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>summer_por_disciplina_tbl <span class="ot">&lt;-</span> summer_tbl <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(Year, City, Sport, Country, Discipline, Event, Gender, Medal) <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>() <span class="co"># No hace ninguna operación</span></span></code></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>() <span class="co"># No hace ninguna operación, simplemente se queda con una sola de las ocurrencias</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Ahora que ya tenemos las medallas por país (y no por atleta 😉)
 para cada disciplina, usando <code>group_by()</code> y los verbos de
@@ -1956,14 +1959,14 @@ Unión Soviética (<code>URS</code>)?</p>
 <p><em>Pista</em>: Para filtrar una columna de acuerdo a varios posibles
 valores discretos les recomiendo investigar el operador <a href="https://dplyr.tidyverse.org/">%in%</a>.</p></li>
 <li><p>Armemos un <code>tibble</code> con los nombres de los medallistas
-olímpicos argentinos en deportes acuáticos y la disciplina, evento y
-medalla que ganaron.</p>
+olímpicos argentinos en deportes acuáticos y la disciplina, evento,
+juego y medalla que ganaron.</p>
 <p><em>Pista</em>: Para seleccionar más de una columna hay que hacer una
 lista usando <code>c()</code> y se recomienda utilizar <a href="https://www.rdocumentation.org/packages/tidyselect/versions/1.1.1/topics/all_of">all_of()</a>.</p></li>
 <li><p>¿Cuáles son los tres países con más medallas de oro en total
 (juegos de invierno y verano)?</p>
 <p><em>Pista 1</em>: para combinar dos <code>tibbles</code> con las
-mismas columnas pueden usar <a href="https://rpubs.com/dku850/597154#:~:text=The%20name%20of%20the%20rbind,code%20for%20rbind%20in%20R.">rbind()</a>.</p>
+mismas columnas pueden usar <a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows()</a>.</p>
 <p><em>Pista 2</em>: Para quedarse con los tres primeros valores pueden
 usar la función <a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head()</a>
 con <code>n = 3</code>.</p></li>
