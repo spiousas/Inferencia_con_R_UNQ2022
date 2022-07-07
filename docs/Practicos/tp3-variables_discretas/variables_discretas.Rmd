@@ -45,40 +45,55 @@ Las siguientes líneas de código generan *N* realizaciones de una variable alea
 N = 50
 set.seed(101)
 realizaciones = base::sample(x=0:1, size=N, replace=T, prob=c(0.5, 0.5))
+
+realizaciones
 ```
 
 Vamos a almacenar los datos de este "experimento" en un `tibble`:
 
 ```{r}
-datos = tibble(id=1:N, value=realizaciones)
+datos = tibble(id=1:N, valor=realizaciones)
 ```
 
-a) Usar `mutate` para agregar una nueva columna en la que los valores de la variable se transformen de modo que un 0 corresponda a la palabra "ceca" y un 1 a "cara".
+Armamos el `tibble` con dos columnas (variables del dataset). La primera (`id`) sirve para identificar cada realización. La segunda (`valor`) contiene las realizaciones.
 
-      *Ayuda*: la función [case_when()](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/case_when) puede ser muy útil dentro del `mutate`.
+```{r}
+datos
+```
+
+a) Usar `mutate` para agregar una nueva columna (piense un nombre apropiado, evite usar `valor2` por ejemplo) en la que los valores de la variable se transformen de modo que un 0 corresponda a la palabra "ceca" y un 1 a "cara".
+
+      *Ayuda*: La función [case_when()](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/case_when) puede ser muy útil dentro del `mutate`.
 
 ```{r, echo=FALSE, eval=FALSE}
-datos %<>% mutate(value2 = case_when(value==1 ~ "cara", value==0 ~ "ceca"))
+datos %<>% mutate(valor_label = case_when(valor==1 ~ "cara", valor==0 ~ "ceca"))
 ```
 
 b) Obtener el número de apariciones de cada valor posible en el experimento (es decir, la frecuencia absoluta), tomando los valores de la columna que más le guste, y guardar el resultado en un nuevo `tibble`.
 
-      *Ayuda*: puede ser muy útil la función [count()](https://dplyr.tidyverse.org/reference/count.html).
+      *Ayuda*: Puede ser muy útil la función [count()](https://dplyr.tidyverse.org/reference/count.html).
 
 ```{r, echo=FALSE, eval=FALSE}
-histograma = datos %>% count(value)
+# notar que, por defecto, count nombra como "n" a la columna que genera
+histograma = datos %>% count(valor)
 ```
 
-      Luego, agregar una nueva columna que contenga la frecuencia relativa observada. (Notar que la cantidad de realizaciones está almacenada en la variable `N`)
+      Luego, agregar una nueva columna que contenga la frecuencia relativa observada. (Notar que la cantidad de realizaciones está almacenada en la variable de entorno `N`)
 
 ```{r, echo=FALSE, eval=FALSE}
 histograma %<>% mutate(f = n/N)
 ```
 
-c) A partir del `tibble` obtenido en el ítem anterior, realizar un gráfico de barras que muestre la frecuencia asociada a cada valor. ¿Qué significa el resultado obtenido? ¿Son equiprobables los valores posibles?
+      *Nota*: No confundir variables de un dataset (es decir, columnas de un `tibble`) con variables del entorno **R** (por ejemplo, la cantidad de datos `N`, u otros parámetros que nos permitan generar el dataset).
+
+c) A partir del `tibble` obtenido en el ítem anterior, realizar un gráfico de barras que muestre la frecuencia asociada a cada valor (es decir, un histograma). ¿Qué significa el resultado obtenido? ¿Son equiprobables los valores posibles?
 
 ```{r, echo=FALSE, eval=FALSE}
-ggplot(histograma1, aes(x=value, y=f)) + geom_col()
+# sintaxis tradicional
+ggplot(histograma, aes(x=valor, y=f)) + geom_col()
+
+# usando pipes
+histograma %>% ggplot(aes(x=valor, y=f)) + geom_col()
 ```
 
 d) Repetir los pasos anteriores para un nuevo experimento que tiene muchas más realizaciones que el anterior. 
@@ -87,18 +102,18 @@ d) Repetir los pasos anteriores para un nuevo experimento que tiene muchas más 
     N = 5001
     set.seed(101)
     realizaciones = base::sample(x=0:1, size=N, replace=T, prob=c(0.5, 0.5))
-    datos2 = tibble(id = 1:N, value=realizaciones)
+    datos = tibble(id = 1:N, valor=realizaciones)
     ```
 
       ¿Cambian sus conclusiones respecto a la pregunta del ítem anterior?
 
-e) A partir del último `tibble` generado (el grande), obtener una nueva columna (usando `mutate`) que contenga la suma parcial sobre las filas de resultados igual a alguno de los dos valores posibles (0 o 1). Por ejemplo, si las primeras filas corresponden a valores (0, 1, 0, 1, 1, 0) las primeras filas de la nueva columna deben valer (0, 1, 1, 2, 3, 3). 
+e) A partir del último `tibble` generado (el grande), obtener una nueva columna (usando `mutate`) que contenga la suma parcial sobre las filas de resultados igual a alguno de los dos valores posibles (0 o 1). Por ejemplo, si las primeras filas corresponden a valores 0, 1, 0, 1, 1, 0, las primeras filas de la nueva columna deben valer 0, 1, 1, 2, 3, 3.
 
       *Ayuda*: Investigar las funciones [sum()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sum) y [cumsum()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cumsum).
 
 
 ```{r, echo=FALSE, eval=FALSE}
-datos2 %<>% mutate(suma_parcial = cumsum(value))
+datos %<>% mutate(suma_parcial = cumsum(valor))
 ```
 
 f) Realizar un gráfico que muestre la columna obtenida en el ítem anterior (en el eje y) versus el número de fila (en el eje x). Recordar que el número de fila está contenido en la columna `id`. ¿Es posible sacar alguna conclusión respecto a la probabilidad de aparición de cada valor a partir de este gráfico?
@@ -107,11 +122,19 @@ f) Realizar un gráfico que muestre la columna obtenida en el ítem anterior (en
 ggplot(datos, aes(x=id, y=suma_parcial)) + geom_line()
 ```
 
-g) *Para pensar:* Obtener una columna que contenga la frecuencia relativa parcial, es decir, la frecuencia relativa calculada a medida que se consideran nuevas realizaciones de la variable. Luego grafícar y discutir la pregunta de siempre. ¿A partir de qué momento cree que puede concluir con certeza cuál es la probabilidad asociada a cada resultado? (Pensar y explicitar el criterio de certeza!!).
+g) *Para pensar:* Obtener una columna que contenga la frecuencia relativa parcial, es decir, la frecuencia relativa calculada a medida que se consideran nuevas realizaciones de la variable. Luego grafícar y discutir la pregunta de siempre. ¿A partir de qué momento cree que puede concluir con certeza cuál es la probabilidad asociada a cara y ceca? (Pensar y explicitar el criterio de certeza!!).
+
+    *Nota*: Puede ser útil modificar el gráfico filtrando una cierta cantidad de datos al principio. ¿Cambian sus conclusiones al hacer esto?
 
 ```{r, echo=FALSE, eval=FALSE}
-ggplot(datos2, aes(x=id, y=suma_parcial/id)) + geom_line()
+# todos los datos
+ggplot(datos, aes(x=id, y=suma_parcial/id)) + geom_line() + geom_hline(yintercept =0.5, linetype = "dashed")
+
+# ignorando los primeros 100 datos
+datos %>% filter (id > 100) %>%
+ggplot(aes(x=id, y=suma_parcial/id)) + geom_line() + geom_hline(yintercept =0.5, linetype = "dashed")
 ```
+
 
 ## Ejercicio 2
 
@@ -121,38 +144,56 @@ Considerar un experimento similar al anterior pero usando una moneda que no est�
 N = 5000
 set.seed(101)
 realizaciones = base::sample(x=0:1, size=N, replace=T, prob=c(0.2, 0.8))
-datos2 = tibble(id = 1:N, value=realizaciones)
+datos2 = tibble(id = 1:N, valor=realizaciones)
 ```
 
 Usando las herramientas discutidas en el ejercicio anterior, estimar la probabilidad de cada valor y cuántas realizaciones son necesarias para establecerla con "certeza".
 
+
 ## Ejercicio 3
 
-Ahora vamos a hacer un experimento en el cuál se tiran 5 monedas justas (equiprobables) en 10 oportunidades:
+Ahora vamos a hacer un experimento en el cuál se tiran 5 monedas justas (equiprobables) en 10 oportunidades.
+
+Lo hago en dos pasos. Primero defino un `tibble` que identifica cada tirada y cada
+moneda mediante etiquetas numéricas:
 
 ```{r}
 # armo la estructura del experimento
 N_monedas = 5
 N_tiradas = 10
 
-datos = list(id_tirada = 1:N_tiradas, id_moneda = 1:N_monedas) %>% cross_df() %>% arrange(id_tirada)
+datos = list(id_tirada = 1:N_tiradas, id_moneda = 1:N_monedas) %>%
+  cross_df() %>%
+  arrange(id_tirada)
 
-# realizo el experimento
-set.seed(101)
-datos %<>% mutate(value = base::sample(x=0:1, size=N_monedas*N_tiradas, replace=T, prob=c(0.5, 0.5)))
+datos
 ```
 
-a) Obtener, usando `summarize` y `group_by`, un nuevo `tibble` que contenga la cantidad de caras obtenidas en cada tirada de 5 monedas
+Luego "lleno" el `tibble` con los datos propiamente dichos (es decir las realizaciones), usando `mutate` y `sample`:
+
+```{r}
+# realizo el experimento
+set.seed(101)
+datos %<>% mutate(valor = base::sample(x=0:1, size=N_monedas*N_tiradas, replace=T, prob=c(0.5, 0.5)))
+
+datos
+```
+
+a) Obtener, usando `summarise` y `group_by`, un nuevo `tibble` que contenga la cantidad de caras obtenidas en cada tirada de 5 monedas (llame `X` a dicha variable).
 
 ```{r, echo=FALSE, eval=FALSE}
-datos_por_tirada = datos %>% group_by(id_tirada) %>% summarize(s = sum(value))
+datos_por_tirada = datos %>%
+  group_by(id_tirada) %>%
+  summarise(X = sum(valor))
 ```
 
 b) A partir de ese `tibble`, armar uno nuevo que contenga la frecuencia de aparición de cada resultado posible. Recuerde que, si se tiran 5 monedas, la cantidad de caras iguales que puede obtener en cada tirada es un número entre 0 y 5 (incluyendo ambos valores, 0 y 5). 
 
 ```{r, echo=FALSE, eval=FALSE}
-histog = datos_por_tirada %>% group_by(s) %>% count()
-histog = datos_por_tirada %>% group_by(s) %>% summarize(n = n())
+# usando count()
+histog = datos_por_tirada %>% group_by(X) %>% count()
+# usando summarise() y n()
+histog = datos_por_tirada %>% group_by(X) %>% summarise(n = n())
 ```
 
     Luego, verificar que la suma de frecuencias absolutas corresponde a la cantidad de tiradas, y obtener la frecuencia relativa para cada valor posible.
@@ -164,36 +205,58 @@ histog %<>% mutate(f = n/N_tiradas)
 
 c) Grafique el histograma para ambas frecuencias.
 
+```{r, echo=FALSE, eval=FALSE}
+histog %>%
+  ggplot(aes(x = X, y = n)) +
+  geom_bar(stat = "identity") + labs(title = "Frecuencia absoluta")
+
+histog %>%
+  ggplot(aes(x = X, y = f)) +
+  geom_bar(stat = "identity") + labs(title = "Frecuencia relativa")
+```
+
+    *Para pensar*: ¿El gráfico contiene todos los valores posibles de la variable `X`? ¿Cómo puede incluirlos? ¿Cuál sería la frecuencia observada para dichos valores faltantes?
+
 d) El resultado de este tipo de experimentos se describe mediante la distribución *binomial*. Vamos a comparar el resultado del experimento con la distribución. Para esto, vamos a usar una función en **R** que nos da la frecuencia relativa esperada, en función de la cantidad de monedas tiradas en cada oportunidad, y de la probabilidad de cara y ceca:
 
     ```{r}
     frec_relat = dbinom(0:N_monedas, size=N_monedas, prob=0.5)
+    
+    frec_relat
     ```
 
-    Vamos a construir un `tibble` que contenga la información correspondiente a nuestro experimento:
+    Vamos a construir un `tibble` que contenga los resultados esperados para nuestro experimento:
 
     ```{r}
-    binom = tibble(n = 0:N_monedas, f = frec_relat)
+    binom = tibble(X = 0:N_monedas, f_teo = frec_relat)
+    
+    binom
     ```
 
     A partir de este `tibble`, grafique la distribución.
+    
+    ```{r, echo=FALSE, eval=FALSE}
+    binom %>%
+      ggplot(aes(x = X, y = f_teo)) +
+      geom_bar(stat= "identity")
+    ```
 
-e) Compare la distribución con el histograma obtenido a partir del experimento. ¿Qué podríamos modificar para aumentar la similitud entre ambos?
+e) Compare la distribución con el histograma obtenido a partir del experimento. Para esto, obtenga un `tibble` que contenga las frecuencias relativas obtenidas en nuestro experimento y también las frecuencias teóricas según la distribución binomial (piense diferentes maneras de hacer esto).
 
+```{r, echo=FALSE, eval=FALSE}
+# Esta manera es problemática si tenemos pocos datos (ya que X puede no contener los valores más extremos -excepto que los hayamos agregado-)
+histog %>%
+  mutate(f     = n / N_tiradas) %>% 
+  mutate(f_teo = dbinom(X, size=N_monedas, prob=0.5))
+```
 
+```{r, echo=FALSE, eval=FALSE}
+# esta manera contiene todos los valores posibles de X, aunque hay algunos missing values
+left_join(binom,
+          histog, by = "X") %>%
+  mutate(n = replace_na(n, 0)
+         f = replace_na(f, 0))
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ¿Qué podríamos modificar para aumentar la similitud entre ambos? Verifícar computacionalmente.
 
