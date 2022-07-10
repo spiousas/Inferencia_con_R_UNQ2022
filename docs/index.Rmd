@@ -74,20 +74,19 @@ semana1_2 %>%
   kable_material(c("striped", "hover"), html_font = "Roboto") %>%
   column_spec(2:3, bold = T)
 ```
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Bienvenidos al Tidyverse                        | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-2/Tidyverse_1.html) | [YouTube](https://www.youtube.com/watch?v=l1ow5g2aUhs&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=4) |
-| El Tidyverse en acción                          | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-3/Tidyverse_2.html) | [YouTube](https://www.youtube.com/watch?v=MpypVMxu3V8&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=5) |
-| *tidyverse*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html) | [(CS-2021)](https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9) [(CS-2022)](https://www.youtube.com/watch?v=n-mw_jn5A6E&list=PL9Cl0jpAAyjyLxsoi_8VM_duU6g0YahvT&index=1) |
 
 * **También en la intensa semana 1:** Visualización de datos con R `r ji("painter")`.
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Visualización de datos: *A New Hope*            | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-1/ggplot_1.html) | [YouTube](https://www.youtube.com/watch?v=LE2QVqLcvE0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=6) |
-| Visualización de datos: *Ggplot2 Strikes Back*  | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-2/ggplot_2.html) | [YouTube](https://www.youtube.com/watch?v=TMhZML7JqsM&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=7) |
-| Visualización de datos: *Return of the Ggplot2* | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-3/ggplot_3.html) | [YouTube](https://www.youtube.com/watch?v=j0vwd7w_Kok&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=8) |
-| *ggplot2*  Olímpico | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP_solved.html) | [(CS-2021)](https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10) [(CS-2022)](https://www.youtube.com/watch?v=n-mw_jn5A6E&list=PL9Cl0jpAAyjyLxsoi_8VM_duU6g0YahvT&index=1) |
+```{r echo = F}
+semana1_3 <- tibble(Clase = c("Visualización de datos: A New Hope", "Visualización de datos: Ggplot2 Strikes Back", "Visualización de datos: Return of the Ggplot2", "ggplot2 olímpico"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-1/ggplot_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-2/ggplot_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/3-3/ggplot_3.html'>Slides</a>", "<a href='(https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP.html'>Consigna</a> <a href='(https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp2-ggplot2/ggplot2_TP_solved.html'>Solución</a>"),
+                  Videos = c( "<a href='https://www.youtube.com/watch?v=LE2QVqLcvE0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=6'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=TMhZML7JqsM&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=7'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=j0vwd7w_Kok&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=8'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=SSY6diKq3o4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=10'>CS2021</a> <a href='https://www.youtube.com/watch?v=n-mw_jn5A6E&list=PL9Cl0jpAAyjyLxsoi_8VM_duU6g0YahvT&index=1'>CS2022</a>"))
+
+semana1_3 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
+  kable_material(c("striped", "hover"), html_font = "Roboto") %>%
+  column_spec(2:3, bold = T)
+```
 
 ### Unidad 2
 
