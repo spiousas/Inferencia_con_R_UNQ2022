@@ -49,37 +49,31 @@ semana0 %>%
   kable_material(c("striped", "hover"), html_font = "Roboto", full_width = F) %>%
   column_spec(3, link = "https://www.youtube.com/watch?v=NOwcUHaqlyI", color = "#205E93", bold = T)
 ```
-<!-- | Clase                 | Vídeo                 | -->
-<!-- | --------------------- | --------------------- | -->
-<!-- | Introducción a R y Rstudio    | [YouTube](https://www.youtube.com/watch?v=NOwcUHaqlyI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=1) | -->
-
 * **Semana 1 (27/6 al 1/7):** Presentación del curso `r ji("baby")`.
 
 ```{r echo = F}
-semana1 <- tibble(Clase = c("Presentación del curso", "¿Por qué R?"),
-                  Documento = c("Slides", "Slides"),
-                  Videos = c("CS-2021", "YouTube"))
+semana1_1 <- tibble(Clase = c("Presentación del curso", "¿Por qué R?"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html'>Slides</a>"),
+                  Videos = c( "<a href='https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2'>CS-2021</a>",  "<a href='https://www.youtube.com/watch?v=SfQ9JF72GvI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=3'>YouTube</a>"))
 
-slides_semana_1 <- c("https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html",
-                     "https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html")
-
-videos_semana_1 <- c("https://www.youtube.com/watch?v=EfR9VmDnDIg",
-                     "https://www.youtube.com/watch?v=SfQ9JF72GvI")
-
-semana1 %>%
-  kbl(align = c("l", "c", "c")) %>%
+semana1_1 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
   kable_material(c("striped", "hover"), html_font = "Roboto") %>%
-  column_spec(2, link = slides_semana_1, color = "#C0002B", bold = T) %>%
-  column_spec(3, link = videos_semana_1, color = "#205E93", bold = T)
+  column_spec(2:3, bold = T)
 ```
-
-<!-- | Clase                 | Documento             | Vídeo                 | -->
-<!-- | --------------------- | --------------------- | --------------------- | -->
-<!-- | Presentación del curso | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/Presentacion_curso/Presentacion_de_R.html) | [(CS-2021)](https://www.youtube.com/watch?v=EfR9VmDnDIg&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=2) | -->
-<!-- | ¿Por qué R?                                    | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-1/Presentacion_de_R.html) | [YouTube](https://www.youtube.com/watch?v=SfQ9JF72GvI&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=3) -->
 
 * **También en la semana 1:** Introducción a R: Bienvenido al Tidyverse! `r ji("baby")`.
 
+```{r echo = F}
+semana1_2 <- tibble(Clase = c("Bienvenidos al Tidyverse", "El tidyverse en acción", "Tidyverse olímpico"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-2/Tidyverse_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-3/Tidyverse_2.html'>Slides</a>", "<a href='(https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP.html'>Consigna</a> <a href='(https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp1-tidyverse/tidyverse_TP_solved.html'>Solución</a>"),
+                  Videos = c( "<a href='https://www.youtube.com/watch?v=l1ow5g2aUhs&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=4'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=MpypVMxu3V8&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=5'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=LJ5JnanfFT4&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=9'>CS2021</a> <a href='https://www.youtube.com/watch?v=n-mw_jn5A6E&list=PL9Cl0jpAAyjyLxsoi_8VM_duU6g0YahvT&index=1'>CS2022</a>"))
+
+semana1_2 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
+  kable_material(c("striped", "hover"), html_font = "Roboto") %>%
+  column_spec(2:3, bold = T)
+```
 | Clase                 | Documento             | Vídeo                 |
 | --------------------- | --------------------- | --------------------- |
 | Bienvenidos al Tidyverse                        | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/2-2/Tidyverse_1.html) | [YouTube](https://www.youtube.com/watch?v=l1ow5g2aUhs&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=4) |
