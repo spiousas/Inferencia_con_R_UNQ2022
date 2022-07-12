@@ -57,12 +57,16 @@ a) Graficar los valores obtenidos versus el número de realización. Elegir un g
 ggplot(datos, aes(x=id, y=value)) + geom_point()
 ```
 
-b) Obtener la frecuencia absoluta para valores menores y mayores al punto intermedio del intervalo (0.5), almacenarla en un ``tibble`` y graficarla
+b) Obtener la frecuencia absoluta para valores menores y mayores al punto intermedio del intervalo (0.5), almacenarla en un ``tibble`` y graficarla.
 
 ```{r} 
-histograma = datos %>% 
-             with(hist(value, breaks = c(0, 0.5, 1), plot = FALSE)) %$% 
-             #with(hist(value, plot = FALSE)) %$% 
+histograma = datos %>%
+             # obtengo el histograma gracias a la función hist
+             with(hist(value,
+                       #breaks = c(0, 0.5, 1),
+                       breaks = seq(from=0, to=1, by=0.5), # para tener más bines cambiando fácilmente el código
+                       plot = FALSE)) %$% 
+             # almaceno la salida en un tibble
              tibble(from    = head(breaks, -1),
                     to      = tail(breaks, -1), 
                     mids    = mids,
@@ -86,10 +90,12 @@ ggplot(histograma, aes(x = mids, y = f)) + geom_col(color='black', fill='white')
 
 d) Armar un ``tibble`` con la densidad de probabilidad teórica y graficarla junto con el histograma.
 
-    Ayuda: investigar la función dunif()
+    Ayuda: investigar la función [dunif()](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Uniform). También [aquí](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Uniform.html).
 
 ```{r}
-densidad = tibble(x = seq(from=-1, to=2, by=0.01)) %>% mutate(pdf = dunif(x, min=0, max=1))
+densidad = tibble(x = seq(from=-1, to=2, by=0.01)) %>%
+  mutate(pdf = dunif(x, min=0, max=1))
+
 densidad
 ```
 
@@ -98,9 +104,9 @@ ggplot() + geom_col(data = histograma, aes(x = mids, y=density), color='black', 
            geom_line(data = densidad, aes(x = x, y = pdf), color = 'orange')
 ```
 
-e) Obtener la probabilidad acumulada y compararla con el valor teórico
+e) Obtener la probabilidad acumulada y compararla con el valor teórico.
 
-    Ayuda: investigar la función punif()
+    Ayuda: investigar la función punif() en las páginas provistas en el ítem anterior.
 
 ```{r}
 histograma %<>% mutate(p = cumsum(f))
@@ -120,12 +126,12 @@ ggplot() +
   geom_line(data = densidad, aes(x = x, y = p), color = 'orange')
 ```
 
-f) Repetir el ejercicio usando una cantidad mayor de realizaciones (por ejemplo, N = 5000), y usando una mayor cantidad de bines en el histograma. ¿Qué relación conviene tener entre ambas cantidades?
+f) Repetir el ejercicio usando una cantidad mayor de realizaciones (por ejemplo, N = 5000), y de bines en el histograma. ¿Qué relación conviene tener entre ambas cantidades?
 
 
 ## Ejercicio 2
 
-Ahora vamos a hacer lo mismo que en el ejercicio anterior, pero con una variable tomada de una distribución Gaussiana
+Ahora vamos a hacer lo mismo que en el ejercicio anterior, pero con una variable tomada de una distribución Gaussiana:
 
 ```{r, echo=TRUE, eval=TRUE}
 N     = 50
@@ -133,21 +139,22 @@ mu    = 100
 sigma = 10
 set.seed(101)
 realizaciones = rnorm(n=N, mean=mu, sd=sigma)
-datos2 = tibble(id = 1:N, value=realizaciones)
+datos = tibble(id = 1:N, value=realizaciones)
 ```
 
 a) Graficar los valores obtenidos versus el número de realización. Elegir un geom conveniente: point, line, col?
 
 ```{r}
-ggplot(datos2, aes(x=id, y=value)) + geom_point()
+ggplot(datos, aes(x=id, y=value)) + geom_point()
 ```
 
-b) Obtener un histograma de frecuencia absoluta, almacenarlo en un ``tibble`` y graficarlo
+b) Obtener un histograma de frecuencia absoluta, almacenarlo en un ``tibble`` y graficarlo.
 
 ```{r} 
-histograma = datos2 %>% 
-             #with(hist(value, breaks = c(0, 0.5, 1), plot = FALSE)) %$% 
+histograma = datos %>% 
+             # uso hist
              with(hist(value, plot = FALSE)) %$% 
+             # almaceno la salida en un tibble
              tibble(from    = head(breaks, -1),
                     to      = tail(breaks, -1), 
                     mids    = mids,
@@ -170,10 +177,12 @@ ggplot(histograma, aes(x = mids, y = f)) + geom_col(color='black', fill='white')
 
 d) Armar un ``tibble`` con la densidad de probabilidad teórica y graficarla junto con el histograma.
 
-    Ayuda: investigar la función dnorm()
+    Ayuda: investigar la función [dnorm()](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html). También [aquí](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal).
+
 
 ```{r}
-densidad = tibble(x = seq(from=50, to=150, by=0.1)) %>% mutate(pdf = dnorm(x, mean=mu, sd=sigma))
+densidad = tibble(x = seq(from=50, to=150, by=0.1)) %>%
+  mutate(pdf = dnorm(x, mean=mu, sd=sigma))
 densidad
 ```
 
@@ -182,9 +191,9 @@ ggplot() + geom_col(data = histograma, aes(x = mids, y=density), color='black', 
            geom_line(data = densidad, aes(x = x, y = pdf), color = 'orange')
 ```
 
-e) Obtener la probabilidad acumulada y compararla con el valor teórico
+e) Obtener la probabilidad acumulada y compararla con el valor teórico.
 
-    Ayuda: investigar la función pnorm()
+    Ayuda: investigar la función pnorm() en las páginas provistas en el ítem anterior.
 
 ```{r}
 histograma %<>% mutate(p = cumsum(f))
@@ -204,7 +213,7 @@ ggplot() +
   geom_line(data = densidad, aes(x = x, y = p), color = 'orange')
 ```
 
-f) Repetir el ejercicio usando una cantidad mayor de realizaciones (por ejemplo, N = 5000), y usando una mayor cantidad de bines en el histograma. ¿Qué relación conviene tener entre ambas cantidades?
+f) Repetir el ejercicio usando una cantidad mayor de realizaciones (por ejemplo, N = 5000), y de bines en el histograma. ¿Qué relación conviene tener entre ambas cantidades?
 
 
 ## Ejercicio 3
