@@ -154,8 +154,7 @@ Usando las herramientas discutidas en el ejercicio anterior, estimar la probabil
 
 Ahora vamos a hacer un experimento en el cuál se tiran 5 monedas justas (equiprobables) en 10 oportunidades.
 
-Lo hago en dos pasos. Primero defino un `tibble` que identifica cada tirada y cada
-moneda mediante etiquetas numéricas:
+Lo hago en dos pasos. Primero defino un `tibble` que identifica cada tirada y cada moneda mediante etiquetas numéricas:
 
 ```{r}
 # armo la estructura del experimento
@@ -260,3 +259,216 @@ left_join(binom,
 
     ¿Qué podríamos modificar para aumentar la similitud entre ambos? Verifícar computacionalmente.
 
+
+## Ejercicio 4 (optativo)
+
+Este ejercicio es optativo. Pueden resolverlo en cualquier momento. Nuestra recomendación es intentarlo ya que repasa varias técnicas que serán útiles más adelante.
+
+El objetivo principal es introducir varias funciones de `tidyverse` que permiten manipular varios datasets a la vez. En los primeros dos ejercicios, generamos un dataset a partir del cuál obteníamos cierta información. ¿Pero qué pasa si necesitamos obtener varias realizaciones de un mismo dataset, para estudiar, por ejemplo, la distribución de parámetros obtenidos? En el ejercicio 3 trabajamos de esa manera, generando un `tibble` que contenia varias repeticiones de un mismo experimento. En este ejercicio vamos a trabajar con varios verbos que nos permiten facilitar ese tipo de análisis, y que son imprescindibles para casos más complejos.
+
+Comencemos por definir nuestro problema. Queremos estudiar una moneda con una cierta probabilidad de salir cara igual a `p` y queremos realizar un experimento donde la moneda se tira `N` veces. A su vez, este experimento será repetido `N_rep` veces. Definimos nuestros parámetros:
+
+```{r}
+p = 0.5
+N = 10
+N_rep = 10
+```
+    
+Vamos a guardar esos parámetros en una estructura cómoda para trabajar: una lista.
+
+```{r}
+par <- list(p = p, N = N, N_rep = N_rep)
+
+par
+```
+
+Usar una lista nos permite reducir la cantidad de variables de entorno que produce nuestro código. A su vez, cada componente de la lista tiene un nombre, lo cuál facilita la legibilidad del código (esto no significa que no sea necesario incluir una descripción de los mismos). De hecho, podríamos omitir la definición de las variables `p`, `N` y `N_rep`, y definir directamente la lista de parámetros. El resultado final es el mismo:
+    
+```{r}
+par <- list(p = 0.5,  # probabilidad de cara
+            N = 10,   # cantidad de monedas tiradas en cada experimento
+        N_rep = 10)   # cantidad de repeticiones del experimento
+
+par
+```
+    
+
+a) Antes de simular nuestros datos, vamos a transformar nuestros parámetros (contenidos en la lista `par`) en un `tibble` mediante la función [cross_df()](https://purrr.tidyverse.org/reference/cross.html):
+
+    ```{r}
+    sims = par %>% 
+      cross_df() %>%
+      mutate(id = 1:n(), .before = 1)
+    
+    sims
+    ```
+    
+    Este `tibble` contiene una sola fila. ¿Qué ocurre si nuestra lista contiene más de un valor de cada parámetro? Por ejemplo, si incluímos dos valores posibles para la probabilidad:
+    
+    ```{r}
+    par2 <- list(p = c(0.1, 0.5), # dos monedas distintas
+                 N = 10,
+             N_rep = 10)
+
+    par2
+    ```
+    
+    Verificar el resultado que genera cross_df() para este conjunto de parámetros:
+    
+    ```{r}
+    sims2 <- par2 %>%
+      cross_df() %>%
+      mutate(id = 1:n(), .before = 1)
+    ```
+    
+    Probar con otros valores posibles de los mismos e interpretar el resultado.
+
+b) Para realizar la simulación, construya un *pipe* que permita evaluar la función [base::sample()](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sample) según los parámetros contenidos en `sims`. ¿Cuál de [los cuatro *pipes* de `magrittr`](https://magrittr.tidyverse.org/reference/pipe.html) es el adecuado en este caso?
+
+    ```{r, eval = FALSE}
+    sims %??% # escribir el pipe correcto
+      base::sample(x    = 0:1,
+                   size = N*N_rep,
+                   prob = c(1-p, p),
+                replace = T)
+    ```
+
+    Luego, emplee dicho *pipe* para simular los datos correspondientes a alguna de las combinaciones de parámetros correspondientes a lista `par2`. Para esto, investigue el verbo [slice()](https://dplyr.tidyverse.org/reference/slice.html).
+ 
+    ```{r, eval = FALSE}
+    par2 %>% 
+      cross_df() %>%
+      slice(??) %??% # escribir correctamente
+      base::sample(x    = 0:1,
+                   size = N*N_rep,
+                   prob = c(1-p, p),
+                replace = T)
+    ```
+
+c) El siguiente bloque de código permite almacenar los datos que generamos en forma de un `tibble` anidado (*nested*):
+
+    ```{r}
+    sims %<>%
+      group_by(id) %>% # notar este pipe, y el uso de base::sample dentro de mutate
+      mutate(data = base::sample(x    = 0:1,
+                                 size = N*N_rep,
+                                 prob = c(1-p, p),
+                              replace = T) %>%  # <-- notar el uso de pipes
+                                                #     dentro de mutate
+               # guardo los datos en una columna llamada values.
+               # el punto refiere a los datos pasados a través
+               # del pipe previo
+               tibble(values = .) %>%
+               # el resultado final es una lista de tibbles
+               list()
+               )
+  
+    sims
+    ```
+
+    Verifique el resultado accediendo al contenido de la columna `data`:
+    
+    ```{r, eval = FALSE}
+    sims$data
+    ```
+
+    Verifique que el contenido de dicha columna corresponde a una lista. Luego, analice el contenido del primer elemento de dicha lista:
+    
+    ```{r, eval = FALSE}
+    sims$data[[1]]
+    ```
+
+    Compruebe que dicho contenido corresponde a un `tibble` de una única columna. Por último, repita el procedimiento usando los parámetros contenidos en `par2` (o en `sims2`). ¿Cuántos `tibbles` resultan almacenados en la columna `data`?
+
+    **Nota:** Antes de continuar, chequee que la cantidad de elementos dentro de cada elemento de `sims$data` corresponda a la esperada. Tenga esto en cuenta para el resto del ejercicio, para no exceder la capacidad de memoria de su computadora.
+
+d) La utilidad de los `tibbles` anidados es que nos permiten modificarlos y extraer información de ellos simultáneamente. De este modo, podemos tener diferentes versiones de un *dataset* (en nuestro caso, las correspondientes a diferentes parámetros que definen el experimento, pero también podría ser una versión del dataset con *outliers* y otra sin, o bien diferentes versiones correspondientes a diferentes métodos para extraer *outliers*) y obtener un mismo análisis a partir de cada una ellas, para después comparar sus resultados.
+
+    Vamos a comenzar modificando los `tibbles` anidados. Para esto, vamos a incorporar la estructura de las tiradas, la cuál estaba definida por los parámetros `N` (cantidad de monedas) y `N_rep` (cantidad de repeticiones):
+    
+    ```{r}
+    sims %<>%
+    mutate(data = pmap(list(N, N_rep, data),
+                       ~ data[[1]] %>%
+                         mutate(id      = 1:(N*N_rep),               # id del dato, es el nro de fila
+                                # rep permite repetir secuencias de dos maneras diferentes
+                                # usando each o times según el caso
+                                id_rep  = rep(1:N_rep, each = N),    # id de la repeticion, va de 1 a N_rep
+                                id_coin = rep(1:N, times = N_rep),   # id de la moneda dentro de una repetición
+                                .before = 1)
+                      ))
+    
+    sims$data[[1]]
+    ```
+
+    Investigue la familia de funciones [map](https://purrr.tidyverse.org/reference/map.html) del paquete `purrr` y analice (a partir del resultado del bloque de código anterior) cómo se mapean los parámetros `N` y `N_rep` a cada elemento dentro de `sims$data`.
+
+e) Piense de qué manera podría haber incorporado la estructura de las tiradas a los `tibbles` anidados en el momento de generar los datos. A continuación va una pista:
+
+    ```{r, eval = FALSE}
+    sims %>%
+      mutate(data = tibble(id      = ??,
+                           id_rep  = ??,
+                           id_coin = ??,
+                           values  = base::sample(x    = 0:1,
+                                                  size = N*N_rep,
+                                                  prob = c(1-p, p),
+                                               replace = T)
+                           ) %>%
+               list())
+    ```
+
+     Compare con el bloque de códigos provisto en el ítem **(c)**.
+
+f) El siguiente bloque de código permite extraer la cantidad total de caras obtenidas en cada `tibble` anidado dentro de la columna `data`:
+
+    ```{r}
+    sims %<>%
+      mutate(suma = pmap(list(data),
+                         ~ data[[1]] %$%
+                             # sumo sobre la columna values de cada tibble
+                             sum(values)) %>%
+                      unlist())
+    
+    sims
+    ```
+
+    Modifique el bloque de código para obtener el promedio de caras obtenido dentro de cada `tibble`. Verifique los resultados obtenidos mediante un *pipe* apropiado a partir de cada `tibble` individual (**Ayuda:** recuerde la sintaxis `sims$data[[j]]`, donde `j` es un índice para acceder al elemento deseado dentro de `data`).
+    
+    **Nota:** Por simplicidad, en este ítem no estamos considerando al estructura de tiradas y repeticiones dentro de cada `tibble`.
+
+g) Interprete el resultado generado por el siguiente bloque de código:
+
+    ```{r}
+    sims %<>%
+      mutate(distrib_p = pmap(list(N, data),
+                              ~ data[[1]] %>%
+                                  group_by(id_rep) %>%
+                                  summarise(p = sum(values) / N)))
+    
+    sims
+    ```
+    
+    Luego, analice la lista de parámetros pasada a la función pmap(): `list(N, data)` y discuta si son todos necesarios.
+
+    **Ayuda:** Evalúe cada elemento contenido en la columna `distrib_p` mediante la sintaxis `sims$distrib_p[[j]]`, donde `j` es un índice para acceder al elemento `j`-ésimo.
+
+h) Interprete el resultado generado por el siguiente bloque de código:
+
+    ```{r}
+    sims %<>%
+      mutate(desvio = pmap(list(distrib_p),
+                           ~ distrib_p[[1]] %$%
+                               sd(p)) %>%
+                        unlist())
+    
+    sims
+    ```
+    
+i) Para finalizar, construya un código que le permita estimar el desvío estándar asociado a la estimación de `p` en función de `N`, para `N_rep` fijo. **Ayuda:** Para empezar, puede considerar `N` entre 10 y 100 en pasos de 10, `p` igual a 0.5 y `N_rep` igual a 500. 
+
+j) **Bonus track:** Analice el rol de `N_rep` en la curva obtenida en el ítem anterior. 
+
+    **Sugerencia:** Construya una simulación (a partir de un conjunto de parámetros apropiado) que le permita realizar dicho análisis reutilizando todo lo visto en el ejercicio.
+    
+    **Nota:** Para comenzar, analice dos valores de `N_rep`, por ejemplo, 50 y 500 (o 50 y 5000). Recuerde verificar que no se exceda la capacidad de memoria de su computadora.

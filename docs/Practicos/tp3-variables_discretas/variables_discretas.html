@@ -7,7 +7,7 @@
 
         <meta name="author" content="Spiousas - Etchemendy" />
     
-        <meta name="date" content="2022-07-07" />
+        <meta name="date" content="2022-07-27" />
     
     <title>TP3 - Variables discretas</title>
 
@@ -193,12 +193,13 @@
           <li><a href="#ejercicio-1">Ejercicio 1</a></li>
           <li><a href="#ejercicio-2">Ejercicio 2</a></li>
           <li><a href="#ejercicio-3">Ejercicio 3</a></li>
+          <li><a href="#ejercicio-4-optativo">Ejercicio 4 (optativo)</a></li>
           </ul>
         </nav>
         <ul class="authors">
           <li class="divider"></li>
                                 <li><span><i class="glyphicon glyphicon-user"></i> Spiousas - Etchemendy</span></li>
-                                         <li><span><i class="glyphicon glyphicon-calendar"></i> 2022-07-07</span></li>
+                                         <li><span><i class="glyphicon glyphicon-calendar"></i> 2022-07-27</span></li>
                   </ul>     
       </div>
       <div class="book-body fixed">
@@ -359,6 +360,203 @@
 <p>A partir de este <code>tibble</code>, grafique la distribución.</p></li>
 <li><p>Compare la distribución con el histograma obtenido a partir del experimento. Para esto, obtenga un <code>tibble</code> que contenga las frecuencias relativas obtenidas en nuestro experimento y también las frecuencias teóricas según la distribución binomial (piense diferentes maneras de hacer esto).</p>
 <p>¿Qué podríamos modificar para aumentar la similitud entre ambos? Verifícar computacionalmente.</p></li>
+</ol>
+</div>
+<div id="ejercicio-4-optativo" class="section level2">
+<h2>Ejercicio 4 (optativo)</h2>
+<p>Este ejercicio es optativo. Pueden resolverlo en cualquier momento. Nuestra recomendación es intentarlo ya que repasa varias técnicas que serán útiles más adelante.</p>
+<p>El objetivo principal es introducir varias funciones de <code>tidyverse</code> que permiten manipular varios datasets a la vez. En los primeros dos ejercicios, generamos un dataset a partir del cuál obteníamos cierta información. ¿Pero qué pasa si necesitamos obtener varias realizaciones de un mismo dataset, para estudiar, por ejemplo, la distribución de parámetros obtenidos? En el ejercicio 3 trabajamos de esa manera, generando un <code>tibble</code> que contenia varias repeticiones de un mismo experimento. En este ejercicio vamos a trabajar con varios verbos que nos permiten facilitar ese tipo de análisis, y que son imprescindibles para casos más complejos.</p>
+<p>Comencemos por definir nuestro problema. Queremos estudiar una moneda con una cierta probabilidad de salir cara igual a <code>p</code> y queremos realizar un experimento donde la moneda se tira <code>N</code> veces. A su vez, este experimento será repetido <code>N_rep</code> veces. Definimos nuestros parámetros:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.5</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>N_rep <span class="ot">=</span> <span class="dv">10</span></span></code></pre></div>
+<p>Vamos a guardar esos parámetros en una estructura cómoda para trabajar: una lista.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">p =</span> p, <span class="at">N =</span> N, <span class="at">N_rep =</span> N_rep)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>par</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $p</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N_rep</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div>
+<p>Usar una lista nos permite reducir la cantidad de variables de entorno que produce nuestro código. A su vez, cada componente de la lista tiene un nombre, lo cuál facilita la legibilidad del código (esto no significa que no sea necesario incluir una descripción de los mismos). De hecho, podríamos omitir la definición de las variables <code>p</code>, <code>N</code> y <code>N_rep</code>, y definir directamente la lista de parámetros. El resultado final es el mismo:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>par <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">p =</span> <span class="fl">0.5</span>,  <span class="co"># probabilidad de cara</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">N =</span> <span class="dv">10</span>,   <span class="co"># cantidad de monedas tiradas en cada experimento</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">N_rep =</span> <span class="dv">10</span>)   <span class="co"># cantidad de repeticiones del experimento</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>par</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $p</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.5</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N_rep</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Antes de simular nuestros datos, vamos a transformar nuestros parámetros (contenidos en la lista <code>par</code>) en un <code>tibble</code> mediante la función <a href="https://purrr.tidyverse.org/reference/cross.html">cross_df()</a>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">=</span> par <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cross_df</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">.before =</span> <span class="dv">1</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>sims</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 4</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id     p     N N_rep</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1   0.5    10    10</span></span></code></pre></div>
+<p>Este <code>tibble</code> contiene una sola fila. ¿Qué ocurre si nuestra lista contiene más de un valor de cada parámetro? Por ejemplo, si incluímos dos valores posibles para la probabilidad:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>par2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>), <span class="co"># dos monedas distintas</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">N =</span> <span class="dv">10</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">N_rep =</span> <span class="dv">10</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>par2</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $p</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.1 0.5</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; $N_rep</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 10</span></span></code></pre></div>
+<p>Verificar el resultado que genera cross_df() para este conjunto de parámetros:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sims2 <span class="ot">&lt;-</span> par2 <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cross_df</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>(), <span class="at">.before =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p>Probar con otros valores posibles de los mismos e interpretar el resultado.</p></li>
+<li><p>Para realizar la simulación, construya un <em>pipe</em> que permita evaluar la función <a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sample">base::sample()</a> según los parámetros contenidos en <code>sims</code>. ¿Cuál de <a href="https://magrittr.tidyverse.org/reference/pipe.html">los cuatro <em>pipes</em> de <code>magrittr</code></a> es el adecuado en este caso?</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%??%</span> <span class="co"># escribir el pipe correcto</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  base<span class="sc">::</span><span class="fu">sample</span>(<span class="at">x    =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> N<span class="sc">*</span>N_rep,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p, p),</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">replace =</span> T)</span></code></pre></div>
+<p>Luego, emplee dicho <em>pipe</em> para simular los datos correspondientes a alguna de las combinaciones de parámetros correspondientes a lista <code>par2</code>. Para esto, investigue el verbo <a href="https://dplyr.tidyverse.org/reference/slice.html">slice()</a>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>par2 <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cross_df</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(??) <span class="sc">%??%</span> <span class="co"># escribir correctamente</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  base<span class="sc">::</span><span class="fu">sample</span>(<span class="at">x    =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> N<span class="sc">*</span>N_rep,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p, p),</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">replace =</span> T)</span></code></pre></div></li>
+<li><p>El siguiente bloque de código permite almacenar los datos que generamos en forma de un <code>tibble</code> anidado (<em>nested</em>):</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">%&gt;%</span> <span class="co"># notar este pipe, y el uso de base::sample dentro de mutate</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">data =</span> base<span class="sc">::</span><span class="fu">sample</span>(<span class="at">x    =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">size =</span> N<span class="sc">*</span>N_rep,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                             <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p, p),</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                          <span class="at">replace =</span> T) <span class="sc">%&gt;%</span>  <span class="co"># &lt;-- notar el uso de pipes</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>                                            <span class="co">#     dentro de mutate</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>           <span class="co"># guardo los datos en una columna llamada values.</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>           <span class="co"># el punto refiere a los datos pasados a través</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>           <span class="co"># del pipe previo</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">tibble</span>(<span class="at">values =</span> .) <span class="sc">%&gt;%</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>           <span class="co"># el resultado final es una lista de tibbles</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>           <span class="fu">list</span>()</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>           )</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>sims</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 5</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   id [1]</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id     p     N N_rep data              </span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;            </span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1   0.5    10    10 &lt;tibble [100 x 1]&gt;</span></span></code></pre></div>
+<p>Verifique el resultado accediendo al contenido de la columna <code>data</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sims<span class="sc">$</span>data</span></code></pre></div>
+<p>Verifique que el contenido de dicha columna corresponde a una lista. Luego, analice el contenido del primer elemento de dicha lista:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sims<span class="sc">$</span>data[[<span class="dv">1</span>]]</span></code></pre></div>
+<p>Compruebe que dicho contenido corresponde a un <code>tibble</code> de una única columna. Por último, repita el procedimiento usando los parámetros contenidos en <code>par2</code> (o en <code>sims2</code>). ¿Cuántos <code>tibbles</code> resultan almacenados en la columna <code>data</code>?</p>
+<p><strong>Nota:</strong> Antes de continuar, chequee que la cantidad de elementos dentro de cada elemento de <code>sims$data</code> corresponda a la esperada. Tenga esto en cuenta para el resto del ejercicio, para no exceder la capacidad de memoria de su computadora.</p></li>
+<li><p>La utilidad de los <code>tibbles</code> anidados es que nos permiten modificarlos y extraer información de ellos simultáneamente. De este modo, podemos tener diferentes versiones de un <em>dataset</em> (en nuestro caso, las correspondientes a diferentes parámetros que definen el experimento, pero también podría ser una versión del dataset con <em>outliers</em> y otra sin, o bien diferentes versiones correspondientes a diferentes métodos para extraer <em>outliers</em>) y obtener un mismo análisis a partir de cada una ellas, para después comparar sus resultados.</p>
+<p>Vamos a comenzar modificando los <code>tibbles</code> anidados. Para esto, vamos a incorporar la estructura de las tiradas, la cuál estaba definida por los parámetros <code>N</code> (cantidad de monedas) y <code>N_rep</code> (cantidad de repeticiones):</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(N, N_rep, data),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                   <span class="sc">~</span> data[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">mutate</span>(<span class="at">id      =</span> <span class="dv">1</span><span class="sc">:</span>(N<span class="sc">*</span>N_rep),               <span class="co"># id del dato, es el nro de fila</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># rep permite repetir secuencias de dos maneras diferentes</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>                            <span class="co"># usando each o times según el caso</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>                            <span class="at">id_rep  =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>N_rep, <span class="at">each =</span> N),    <span class="co"># id de la repeticion, va de 1 a N_rep</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                            <span class="at">id_coin =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>N, <span class="at">times =</span> N_rep),   <span class="co"># id de la moneda dentro de una repetición</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                            <span class="at">.before =</span> <span class="dv">1</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                  ))</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>sims<span class="sc">$</span>data[[<span class="dv">1</span>]]</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 100 x 4</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;       id id_rep id_coin values</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    &lt;int&gt;  &lt;int&gt;   &lt;int&gt;  &lt;int&gt;</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  1     1      1       1      1</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  2     2      1       2      1</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  3     3      1       3      0</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  4     4      1       4      0</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  5     5      1       5      1</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  6     6      1       6      0</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  7     7      1       7      0</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  8     8      1       8      0</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  9     9      1       9      0</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10    10      1      10      0</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # ... with 90 more rows</span></span></code></pre></div>
+<p>Investigue la familia de funciones <a href="https://purrr.tidyverse.org/reference/map.html">map</a> del paquete <code>purrr</code> y analice (a partir del resultado del bloque de código anterior) cómo se mapean los parámetros <code>N</code> y <code>N_rep</code> a cada elemento dentro de <code>sims$data</code>.</p></li>
+<li><p>Piense de qué manera podría haber incorporado la estructura de las tiradas a los <code>tibbles</code> anidados en el momento de generar los datos. A continuación va una pista:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">id      =</span> ??,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">id_rep  =</span> ??,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">id_coin =</span> ??,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>                       <span class="at">values  =</span> base<span class="sc">::</span><span class="fu">sample</span>(<span class="at">x    =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">size =</span> N<span class="sc">*</span>N_rep,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                                              <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">-</span>p, p),</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                                           <span class="at">replace =</span> T)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>                       ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">list</span>())</span></code></pre></div>
+<p>Compare con el bloque de códigos provisto en el ítem <strong>(c)</strong>.</p></li>
+<li><p>El siguiente bloque de código permite extraer la cantidad total de caras obtenidas en cada <code>tibble</code> anidado dentro de la columna <code>data</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">suma =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(data),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                     <span class="sc">~</span> data[[<span class="dv">1</span>]] <span class="sc">%$%</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                         <span class="co"># sumo sobre la columna values de cada tibble</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">sum</span>(values)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">unlist</span>())</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>sims</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 6</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   id [1]</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id     p     N N_rep data                suma</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;             &lt;int&gt;</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1   0.5    10    10 &lt;tibble [100 x 4]&gt;    47</span></span></code></pre></div>
+<p>Modifique el bloque de código para obtener el promedio de caras obtenido dentro de cada <code>tibble</code>. Verifique los resultados obtenidos mediante un <em>pipe</em> apropiado a partir de cada <code>tibble</code> individual (<strong>Ayuda:</strong> recuerde la sintaxis <code>sims$data[[j]]</code>, donde <code>j</code> es un índice para acceder al elemento deseado dentro de <code>data</code>).</p>
+<p><strong>Nota:</strong> Por simplicidad, en este ítem no estamos considerando al estructura de tiradas y repeticiones dentro de cada <code>tibble</code>.</p></li>
+<li><p>Interprete el resultado generado por el siguiente bloque de código:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">distrib_p =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(N, data),</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                          <span class="sc">~</span> data[[<span class="dv">1</span>]] <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">group_by</span>(id_rep) <span class="sc">%&gt;%</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">summarise</span>(<span class="at">p =</span> <span class="fu">sum</span>(values) <span class="sc">/</span> N)))</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>sims</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 7</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   id [1]</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id     p     N N_rep data                suma distrib_p        </span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;             &lt;int&gt; &lt;list&gt;           </span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1   0.5    10    10 &lt;tibble [100 x 4]&gt;    47 &lt;tibble [10 x 2]&gt;</span></span></code></pre></div>
+<p>Luego, analice la lista de parámetros pasada a la función pmap(): <code>list(N, data)</code> y discuta si son todos necesarios.</p>
+<p><strong>Ayuda:</strong> Evalúe cada elemento contenido en la columna <code>distrib_p</code> mediante la sintaxis <code>sims$distrib_p[[j]]</code>, donde <code>j</code> es un índice para acceder al elemento <code>j</code>-ésimo.</p></li>
+<li><p>Interprete el resultado generado por el siguiente bloque de código:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sims <span class="sc">%&lt;&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">desvio =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(distrib_p),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                       <span class="sc">~</span> distrib_p[[<span class="dv">1</span>]] <span class="sc">%$%</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">sd</span>(p)) <span class="sc">%&gt;%</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">unlist</span>())</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>sims</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 8</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # Groups:   id [1]</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      id     p     N N_rep data                suma distrib_p         desvio</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;list&gt;             &lt;int&gt; &lt;list&gt;             &lt;dbl&gt;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1     1   0.5    10    10 &lt;tibble [100 x 4]&gt;    47 &lt;tibble [10 x 2]&gt;  0.157</span></span></code></pre></div></li>
+<li><p>Para finalizar, construya un código que le permita estimar el desvío estándar asociado a la estimación de <code>p</code> en función de <code>N</code>, para <code>N_rep</code> fijo. <strong>Ayuda:</strong> Para empezar, puede considerar <code>N</code> entre 10 y 100 en pasos de 10, <code>p</code> igual a 0.5 y <code>N_rep</code> igual a 500.</p></li>
+<li><p><strong>Bonus track:</strong> Analice el rol de <code>N_rep</code> en la curva obtenida en el ítem anterior.</p>
+<p><strong>Sugerencia:</strong> Construya una simulación (a partir de un conjunto de parámetros apropiado) que le permita realizar dicho análisis reutilizando todo lo visto en el ejercicio.</p>
+<p><strong>Nota:</strong> Para comenzar, analice dos valores de <code>N_rep</code>, por ejemplo, 50 y 500 (o 50 y 5000). Recuerde verificar que no se exceda la capacidad de memoria de su computadora.</p></li>
 </ol>
 </div>
 
