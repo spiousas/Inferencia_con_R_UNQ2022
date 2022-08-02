@@ -108,7 +108,7 @@ semana2 %>%
 ```{r echo = F}
 semana3 <- tibble(Clase = c("Exploración de datos", "Cómo detectar outliers y qué hacer con ellos", "Análisis exploratorio de datos"),
                   Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-1/EDA_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-2/EDA_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html'>Consigna</a>"),
-                  Videos = c( "<a https://www.youtube.com/watch?v=oPfr0X0qGG4'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=gwMIpYw_J5A'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=w-9xmWBb_R4'>CS2021</a>"))
+                  Videos = c( "<a href=https://www.youtube.com/watch?v=oPfr0X0qGG4'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=gwMIpYw_J5A'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=w-9xmWBb_R4'>CS2021</a>"))
 
 semana3 %>%
   kbl(align = c("l", "c", "c"), escape = FALSE) %>%
