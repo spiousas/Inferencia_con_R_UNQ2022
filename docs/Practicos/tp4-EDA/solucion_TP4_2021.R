@@ -23,22 +23,44 @@ summary(netflix)
 str(netflix)
 glimpse(netflix)
 
+netflix %>% drop_na()
+
+netflix %>%
+  mutate(`IMDB Score` = replace_na(`IMDB Score`, 0)) %>%
+  summary()
+
+netflix %>%
+  mutate(`IMDB Score` = replace_na(`IMDB Score`, mean(`IMDB Score`, na.rm = TRUE))) %>%
+  summary()
+
+netflix <- netflix %>% drop_na()
+
 library(lubridate)
+a <- dmy("13-8-2021")
+b <- mdy("August 5, 2019")
+a-b
+
+# Mencionar el tema de las variables que deberían ser categóricas y son ordinales (ID de sujeto o animal)
+as.character(netflix$Runtime)
+
 netflix <- netflix %>%
   mutate(Premiere = mdy(Premiere))
 glimpse(netflix)
 
 library(skimr)
 skim(netflix)
+# Hablar de cómo ya sabe que la variable date es una fecha
+# Mencionar el tema de los n_unique y cómo eso nos puede ayudar a entender un dataset
 
 netflix %>%
   count(Genre) %>%
   arrange(desc(n)) %>%
   slice_head(n = 3)
+# Hablar de los idiomas compuestos
 
 netflix %>%
-  count(Language) %>%
-  arrange(desc(n)) %>%
+  count(Language, name = "Cantidad") %>%
+  arrange(desc(Cantidad)) %>%
   slice_head(n = 3)
 
 # 2 - Variación ----------------------------------------------------------------
@@ -57,12 +79,39 @@ netflix %>%
 netflix %>%
   group_by(Genre) %>%
   summarise(N = n()) %>%
+  ggplot(aes(x = Genre,
+             y = N)) +
+  geom_col()
+
+netflix %>%
+  group_by(Genre) %>%
+  summarise(N = n()) %>%
+  ggplot(aes(x = Genre,
+             y = N)) +
+  geom_col() +
+  coord_flip() +
+  theme(axis.text.y = element_text(size = 5))
+
+netflix %>%
+  group_by(Genre) %>%
+  summarise(N = n()) %>%
+  ggplot(aes(x = reorder(Genre, N),
+             y = N)) +
+  geom_col() +
+  coord_flip() +
+  theme(axis.text.y = element_text(size = 5))
+
+netflix %>%
+  group_by(Genre) %>%
+  summarise(N = n()) %>%
   arrange(desc(N)) %>%
   slice_head(n = 20) %>%
   ggplot(aes(x = reorder(Genre, N),
              y = N)) +
   geom_col() +
   coord_flip()
+
+table(netflix$Genre)
 
 netflix %>%
   ggplot(aes(x = `IMDB Score`)) +
@@ -129,6 +178,8 @@ netflix %>%
   scale_fill_viridis_b() +
   theme_minimal()
 
+# Hablar de qué simboliza cada cosa en un boxplot
+
 idiomas <- c("English", "Spanish", "Hindi")
 netflix %>%
   filter(Genre %in% generos) %>%
@@ -140,6 +191,21 @@ netflix %>%
   geom_tile() +
   scale_fill_viridis_c() +
   theme_minimal()
+
+netflix %>%
+  filter(Genre %in% generos) %>%
+  filter(Language %in% idiomas) %>%
+  count(Genre, Language) %>%
+  ggplot(aes(y = Language,
+             x = Genre,
+             fill = n)) +
+  geom_tile() +
+  geom_text(aes(label = n), color = "white") +
+  scale_fill_viridis_c() +
+  theme_minimal()
+
+
+# Hablar de para qué sirve el tile. Si por una combinación de factores nos mandamos alguna cagada.
 
 netflix %>%
   ggplot(aes(x = Premiere,
@@ -164,6 +230,11 @@ netflix %>%
   ggpairs() +
   theme_minimal()
 
+library(corrplot)
+mydata.cor = cor(netflix %>%
+                   select_if(is.numeric))
+corrplot(mydata.cor, tl.cex = .6)
+
 # 4 - Outliers -----------------------------------------------------------------
 #
 # Usemos la librería *{Routliers}* para ver si tenemos *outliers* univariados en las variables `Runtime` (duración) y `IMDB Score` (rating de IMDB)
@@ -175,6 +246,13 @@ netflix %>%
 # Por último, analicemos si hay outliers multivariados en ambas variables.
 
 library(Routliers)
+
+# Otliers:
+#   Error: Errores de tipeo, etc.
+#   Sistemáticos: Valores extremos relacionados con alguna estructura de nuestros datos que no tuvimos en cuenta en el diseño
+#   De distribución: Simplemente valores extremos
+
+median(netflix$Runtime)
 
 outliers_runtime <- outliers_mad(x = netflix$Runtime)
 outliers_runtime
@@ -201,6 +279,7 @@ plot_outliers_mad(outliers_IMDB,
 netflix %>%
   filter(`IMDB Score` < outliers_IMDB$limits[1])
 
+# Ejemplo de outlier multivariado, persona de 1.9 metros de alturay de 55 Kg de
 outliers_multi <- outliers_mcd(x = cbind(netflix$Runtime,
                                          netflix$`IMDB Score`))
 outliers_multi

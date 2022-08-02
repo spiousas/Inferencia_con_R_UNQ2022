@@ -107,8 +107,8 @@ semana2 %>%
 
 ```{r echo = F}
 semana3 <- tibble(Clase = c("Exploración de datos", "Cómo detectar outliers y qué hacer con ellos", "Análisis exploratorio de datos"),
-                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-1/EDA_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-2/EDA_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html'>Consigna</a>"),
-                  Videos = c( "<a href=https://www.youtube.com/watch?v=oPfr0X0qGG4'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=gwMIpYw_J5A'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=w-9xmWBb_R4'>CS2021</a>"))
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-1/EDA_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/7-2/EDA_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP.html'>Consigna</a> <br> <a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp4-EDA/EDA_TP_solved.html'>Solución</a>"),
+                  Videos = c( "<a href=https://www.youtube.com/watch?v=oPfr0X0qGG4'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=gwMIpYw_J5A'>YouTube</a>", "<a href='https://www.youtube.com/watch?v=w-9xmWBb_R4'>CS2021</a> <br> <a href='https://youtu.be/UxImGZ0Vnog'>CS2022</a>"))
 
 semana3 %>%
   kbl(align = c("l", "c", "c"), escape = FALSE) %>%
@@ -127,33 +127,42 @@ div.blue { background-color:#e6f0ff; border-radius: 5px; padding: 5px;}
 
 * **Semana 4 (1/8 al 5/8):** Prueba de hipótesis y control de errores: Potencia estadística, qué es y qué NO ES un p-value, y por qué es saludable reportar effect sizes `r ji("computer")`.
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Prueba de hipótesis 1                           | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf)  | [YouTube](https://www.youtube.com/watch?v=Yp12ptJ_luY&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=20) |
-| Prueba de hipótesis 2 - Para qué sirve? | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf)  | [YouTube](https://www.youtube.com/watch?v=LHZWAOwJ2gM&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=21) |
-| Prueba de hipótesis 3 - Relación entre estadística crítica y nivel de significancia (alfa) | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf)  | [YouTube](https://www.youtube.com/watch?v=hhF9G-2uilQ&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=22) |
-| Prueba de hipótesis 4 - P-values | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=o4M96nLVn0A&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=23) |
-| Prueba de hipótesis 5 - Potencia estadística | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=fpO0B7ZlHSE&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=25) |
-| Prueba de hipótesis 6 - Tamaño del efecto | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf) | [YouTube](https://www.youtube.com/watch?v=EfL0o20VA-w&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=26) |
-| Prueba de hipótesis | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html)  | [(CS-2021)](https://www.youtube.com/watch?v=bGkpOmXoOto&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=27) |
+```{r echo = F}
+semana4 <- tibble(Clase = c("Prueba de hipótesis 1", "Prueba de hipótesis 2 - Para qué sirve?", "Prueba de hipótesis 3 - Relación entre estadística crítica y <br> nivel de significancia (alfa)", "Prueba de hipótesis 4 - P-values", "Prueba de hipótesis 5 - Potencia estadística", "Prueba de hipótesis 6 - Tamaño del efecto", "Prueba de hipótesis"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/8/NHST_p-values_effect-size.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp5-hipotesis/hipotesis.html'>Consigna</a>"),
+                  Videos = c( "<a href='https://youtu.be/Yp12ptJ_luY'>YouTube</a>", "<a href='https://youtu.be/LHZWAOwJ2gM'>YouTube</a>", "<a href='https://youtu.be/hhF9G-2uilQ'>YouTube</a>", "<a href='https://youtu.be/o4M96nLVn0A'>YouTube</a>", "<a href='https://youtu.be/fpO0B7ZlHSE'>YouTube</a>", "<a href='https://youtu.be/EfL0o20VA-w'>YouTube</a>", "<a href='https://youtu.be/bGkpOmXoOto'>CS2021</a>"))
+
+semana4 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
+  kable_material(c("striped", "hover"), html_font = "Roboto") %>%
+  column_spec(2:3, bold = T)
+```
 
 * **Semana 5 (8/8 al 12/8):** Modelos lineales: Regresión lineal y regresión múltiple `r ji("arrow")`.
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Modelos lineales 1 - Regresión lineal | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-1/linear_models_1.html) | [YouTube](https://www.youtube.com/watch?v=w6khKjCO1E0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=28) |
-| Modelos lineales 2 - Inferencia en regresión lineal | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-2/linear_models_2.html) | [YouTube](https://www.youtube.com/watch?v=_Khk5-_v5u0&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=29) |
-| Modelos lineales 3 - Regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-3/linear_models_3.html) | [YouTube](https://www.youtube.com/watch?v=ipO3seGtsvw&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=30) |
-| Modelos lineales 4 - Inferencia en regresión múltiple | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html) | [YouTube](https://www.youtube.com/watch?v=aHh4AufEd10&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=31) |
-| Modelos lineales | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html) [Solución](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html)| [(CS-2021)](https://www.youtube.com/watch?v=Vd7l3btHBYU&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=32) |
+```{r echo = F}
+semana5 <- tibble(Clase = c("Modelos lineales 1 - Regresión lineal", "Modelos lineales 2 - Inferencia en regresión lineal", "Modelos lineales 3 - Regresión múltiple", "Modelos lineales 4 - Inferencia en regresión múltiple", "Modelos lineales"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-1/linear_models_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-2/linear_models_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-3/linear_models_3.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html'>Consigna</a> <br> <a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html'>Solución</a>"),
+                  Videos = c( "<a href='https://youtu.be/w6khKjCO1E0'>YouTube</a>", "<a href='https://youtu.be/_Khk5-_v5u0'>YouTube</a>", "<a href='https://youtu.be/ipO3seGtsvw'>YouTube</a>", "<a href='https://youtu.be/aHh4AufEd10'>YouTube</a>", "<a href='https://youtu.be/Vd7l3btHBYU'>CS2021</a>"))
+
+semana5 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
+  kable_material(c("striped", "hover"), html_font = "Roboto") %>%
+  column_spec(2:3, bold = T)
+```
 
 * **Semana 6 (15/8 al 19/8):** Modelos jerárquicos: Qué son y para qué sirven los famosos modelos lineales de efectos mixtos `r ji("fear")`.
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
-| Modelos lineales de efectos mixtos 1 - Datos jerárquicos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=juYglyzFCVA&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=33) |
-| Modelos lineales de efectos mixtos 2 - Efectos mixtos | [Slides](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf) | [YouTube](https://www.youtube.com/watch?v=QGVwlNiU9Po&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=34)
-| Modelos lineales de efecto mixtos | [Consigna](https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html)| [(CS-2021)](https://www.youtube.com/watch?v=8k93z5u31bQ&list=PL9Cl0jpAAyjw3OtpK8omF19AJeUrmSF-f&index=36) |
+```{r echo = F}
+semana6 <- tibble(Clase = c("Modelos lineales de efectos mixtos 1 - Datos jerárquicos", "Modelos lineales de efectos mixtos 2 - Efectos mixtos", "Modelos lineales de efecto mixtos"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html'>Consigna</a>"),
+                  Videos = c("<a href='https://youtu.be/juYglyzFCVA'>YouTube</a>", "<a href='https://youtu.be/QGVwlNiU9Po'>YouTube</a>", "<a href='https://youtu.be/8k93z5u31bQ'>CS2021</a>"))
+
+semana6 %>%
+  kbl(align = c("l", "c", "c"), escape = FALSE) %>%
+  kable_material(c("striped", "hover"), html_font = "Roboto") %>%
+  column_spec(2:3, bold = T)
+```
 
 
 ### Unidad 4
