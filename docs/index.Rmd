@@ -143,7 +143,7 @@ semana4 %>%
 ```{r echo = F}
 semana5 <- tibble(Clase = c("Modelos lineales 1 - Regresión lineal", "Modelos lineales 2 - Inferencia en regresión lineal", "Modelos lineales 3 - Regresión múltiple", "Modelos lineales 4 - Inferencia en regresión múltiple", "Modelos lineales"),
                   Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-1/linear_models_1.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-2/linear_models_2.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-3/linear_models_3.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/10-4/linear_models_4.html'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP.html'>Consigna</a> <br> <a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp6-modelos_lineales/modelos_lineales_TP_solved.html'>Solución</a>"),
-                  Videos = c( "<a href='https://youtu.be/w6khKjCO1E0'>YouTube</a>", "<a href='https://youtu.be/_Khk5-_v5u0'>YouTube</a>", "<a href='https://youtu.be/ipO3seGtsvw'>YouTube</a>", "<a href='https://youtu.be/aHh4AufEd10'>YouTube</a>", "<a href='https://youtu.be/Vd7l3btHBYU'>CS2021</a>"))
+                  Videos = c( "<a href='https://youtu.be/w6khKjCO1E0'>YouTube</a>", "<a href='https://youtu.be/_Khk5-_v5u0'>YouTube</a>", "<a href='https://youtu.be/ipO3seGtsvw'>YouTube</a>", "<a href='https://youtu.be/aHh4AufEd10'>YouTube</a>", "<a href='https://youtu.be/Vd7l3btHBYU'>CS2021</a> <br> <a href='https://youtu.be/pDijkiyRZuk'>CS2022</a>"))
 
 semana5 %>%
   kbl(align = c("l", "c", "c"), escape = FALSE) %>%
