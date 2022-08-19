@@ -165,12 +165,12 @@ semana6 %>%
 ```
 
 
-### Unidad 4
+<!-- ### Unidad 4 -->
 
-* **Semana 7 (22/8 al 26/8):** Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`.
+<!-- * **Semana 7 (22/8 al 26/8):** Ciencia Abierta: Por qué, para qué y cómo `r ji("open")`. -->
 
-| Clase                 | Documento             | Vídeo                 |
-| --------------------- | --------------------- | --------------------- |
+<!-- | Clase                 | Documento             | Vídeo                 | -->
+<!-- | --------------------- | --------------------- | --------------------- | -->
 
 ### Unidad 5
 
