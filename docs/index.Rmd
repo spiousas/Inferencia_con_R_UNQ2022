@@ -155,7 +155,7 @@ semana5 %>%
 
 ```{r echo = F}
 semana6 <- tibble(Clase = c("Modelos lineales de efectos mixtos 1 - Datos jerárquicos", "Modelos lineales de efectos mixtos 2 - Efectos mixtos", "Modelos lineales de efecto mixtos"),
-                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html'>Consigna</a>"),
+                  Documento = c("<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/Modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Presentaciones/11/Modelos_mixtos.pdf'>Slides</a>", "<a href='https://spiousas.github.io/Inferencia_con_R_UNQ2022/Practicos/tp7-modelos_mixtos/mixtos.html'>Consigna</a>"),
                   Videos = c("<a href='https://youtu.be/juYglyzFCVA'>YouTube</a>", "<a href='https://youtu.be/QGVwlNiU9Po'>YouTube</a>", "<a href='https://youtu.be/8k93z5u31bQ'>CS2021</a> <br> <a href='https://youtu.be/kOMigkv9cKg'>CS2022</a>"))
 
 semana6 %>%
